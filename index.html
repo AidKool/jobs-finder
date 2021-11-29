@@ -13,10 +13,113 @@
     <title>Jobs Finder</title>
   </head>
   <body>
+    <nav class="navbar has-shadow">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="images/logo.png" />
+        </a>
+        <div class="navbar-burger burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <small>Job searching made easy</small>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <div class="navbar-link">About us</div>
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                <div>
+                  <span class="icon is-small">
+                    <i class="fa fa-user-circle-o"></i>
+                  </span>
+                  Profile
+                </div>
+              </a>
+              <a
+                class="navbar-item open-modal-button"
+                data-target="report-a-bug"
+              >
+                <div>
+                  <span class="icon is-small">
+                    <i class="fa fa-bug"></i>
+                  </span>
+                  Contact us
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <section class="section">
-      <div class="container">
-        <h1 class="title">Jobs Finder</h1>
-        <p class="subtitle">Testing <strong>Bulma</strong>!</p>
+      <div class="columns">
+        <div class="column is-4-tablet is-3-desktop is-2-widescreen">
+          <!--This is where the form elements will go in-->
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input" type="text" placeholder="Manchester" />
+            </p>
+            <p class="control">
+              <button class="button">Search</button>
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+          <section class="hero">
+            <div class="hero-body"></div>
+          </section>
+
+          <nav class="pagination">
+            <a class="pagination-previous">Previous</a>
+            <a class="pagination-next">Next page</a>
+            <ul class="pagination-list">
+              <li>
+                <a class="pagination-link is-current">1</a>
+              </li>
+              <li>
+                <a class="pagination-link">2</a>
+              </li>
+              <li>
+                <a class="pagination-link">3</a>
+              </li>
+              <li>
+                <a class="pagination-link">4</a>
+              </li>
+              <li>
+                <span class="pagination-ellipsis">&hellip;</span>
+              </li>
+              <li>
+                <a class="pagination-link">50</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </section>
     <!-- javascript -->
