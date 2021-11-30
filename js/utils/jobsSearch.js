@@ -1,6 +1,6 @@
 import { fetchData } from './fetchData.js';
 
-const keywords = ['developer'].join(',');
+const keywords = ['developer', 'web developer'].join(',');
 const locationName = 'manchester';
 const distdistanceFromLocationance = 10;
 const permanent = true;
@@ -16,8 +16,9 @@ const graduate = true;
 const resultsToTake = 10;
 const resultsToSkip = 5;
 
+const proxy = 'https://cors-anywhere.herokuapp.com/';
 const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&location=${locationName}`;
 
-const data = await fetchData(url);
+const data = await fetchData(proxy + url);
 
 console.log(data);
