@@ -31,6 +31,14 @@
   line-height: 1;
 }
 
+.button {
+  display: flex;
+  flex-wrap: wrap;
+  width: 10rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 @media (max-width: 1024px) {
   .desktop {
     display: none;

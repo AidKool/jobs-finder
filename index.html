@@ -1,128 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>Jobs Finder</title>
-  </head>
-  <body>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <img src="images/logo.png" />
-        </a>
-        <div class="navbar-burger burger">
-          <span></span>
-          <span></span>
-          <span></span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>Jobs Finder</title>
+</head>
+
+<body>
+  <nav class="navbar has-shadow">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="images/logo.png" />
+      </a>
+      <div class="navbar-burger burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <div class="navbar-item">
+          <small>Job searching made easy</small>
         </div>
       </div>
 
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>Job searching made easy</small>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">About us</div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              <div>
+                <span class="icon is-small">
+                  <i class="fa fa-user-circle-o"></i>
+                </span>
+                Profile
+              </div>
+            </a>
+            <a class="navbar-item open-modal-button" data-target="report-a-bug">
+              <div>
+                <span class="icon is-small">
+                  <i class="fa fa-bug"></i>
+                </span>
+                Contact us
+              </div>
+            </a>
           </div>
         </div>
+      </div>
+    </div>
+  </nav>
 
-        <div class="navbar-end">
-          <div class="navbar-item has-dropdown is-hoverable">
-            <div class="navbar-link">About us</div>
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
+  <section class="section">
+    <div class="columns">
+      <div class="column is-4-tablet is-3-desktop is-2-widescreen">
+        <!--This is where the form elements will go in-->
+        <div class="field has-addons">
+          <p class="control">
+            <input class="input" type="text" placeholder="Manchester" />
+          </p>
+          <p class="control">
+            <button class="button">Search</button>
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <section class="hero">
+          <div class="hero-body"></div>
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <h3 class="title">
+                  <a href="">Job Title</a>
+                </h3>
                 <div>
-                  <span class="icon is-small">
-                    <i class="fa fa-user-circle-o"></i>
-                  </span>
-                  Profile
+                  <p>Employer Name</p>
                 </div>
-              </a>
-              <a
-                class="navbar-item open-modal-button"
-                data-target="report-a-bug"
-              >
                 <div>
-                  <span class="icon is-small">
-                    <i class="fa fa-bug"></i>
-                  </span>
-                  Contact us
+                  <p>Location</p>
                 </div>
-              </a>
+                <div>
+                  <p>£ - £ Salary Range</p>
+                </div>
+                <div>
+                  <p>Currency</p>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse magnam labore temporibus! Quasi adipisci
+                  totam, eos ratione dolorem consequatur. Odio.
+                </p>
+                <button class="button">
+                  Favourite</i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+        <section class="hero">
+          <div class="hero-body"></div>
+        </section>
+        <section class="hero">
+          <div class="hero-body"></div>
+        </section>
+        <section class="hero">
+          <div class="hero-body"></div>
+        </section>
+        <section class="hero">
+          <div class="hero-body"></div>
+        </section>
+        <section class="hero">
+          <div class="hero-body"></div>
+        </section>
+
+        <nav class="pagination">
+          <a class="pagination-previous">Previous</a>
+          <a class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li>
+              <a class="pagination-link is-current">1</a>
+            </li>
+            <li>
+              <a class="pagination-link">2</a>
+            </li>
+            <li>
+              <a class="pagination-link">3</a>
+            </li>
+            <li>
+              <a class="pagination-link">4</a>
+            </li>
+            <li>
+              <span class="pagination-ellipsis">&hellip;</span>
+            </li>
+            <li>
+              <a class="pagination-link">50</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </nav>
+    </div>
+  </section>>
+  <!-- javascript -->
+  <script type="module" src="./js/app.js"></script>
+</body>
 
-    <section class="section">
-      <div class="columns">
-        <div class="column is-4-tablet is-3-desktop is-2-widescreen">
-          <!--This is where the form elements will go in-->
-          <div class="field has-addons">
-            <p class="control">
-              <input class="input" type="text" placeholder="Manchester" />
-            </p>
-            <p class="control">
-              <button class="button">Search</button>
-            </p>
-          </div>
-        </div>
-
-        <div class="column">
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-          <section class="hero">
-            <div class="hero-body"></div>
-          </section>
-
-          <nav class="pagination">
-            <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-              <li>
-                <a class="pagination-link is-current">1</a>
-              </li>
-              <li>
-                <a class="pagination-link">2</a>
-              </li>
-              <li>
-                <a class="pagination-link">3</a>
-              </li>
-              <li>
-                <a class="pagination-link">4</a>
-              </li>
-              <li>
-                <span class="pagination-ellipsis">&hellip;</span>
-              </li>
-              <li>
-                <a class="pagination-link">50</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </section>
-    <!-- javascript -->
-    <script type="module" src="./js/app.js"></script>
-  </body>
 </html>
