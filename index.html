@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Jobs Finder</title>
   </head>
@@ -44,10 +48,7 @@
                   Profile
                 </div>
               </a>
-              <a
-                class="navbar-item open-modal-button"
-                data-target="report-a-bug"
-              >
+              <a class="navbar-item open-modal-button" data-target="report-a-bug">
                 <div>
                   <span class="icon is-small">
                     <i class="fa fa-bug"></i>
@@ -119,6 +120,32 @@
               </li>
             </ul>
           </nav>
+        </div>
+        <div class="modal is-active">
+          <div class="modal-background"></div>
+          <div class="modal-content has-background-white py-5 px-5">
+            <h3 class="title mb-2">Job title</h3>
+            <div class="company-container is-flex is-align-items-center mb-2">
+              <i class="fas fa-building"></i>
+              <p class="ml-2">Company</p>
+            </div>
+            <div class="location-container is-flex is-align-items-center mb-2">
+              <i class="fas fa-map-marker-alt"></i>
+              <p class="ml-2">Location</p>
+            </div>
+            <div class="salary-container is-flex is-align-items-center mb-2">
+              <i class="fas fa-pound-sign"></i>
+              <p class="ml-2">£min-salary - £max-salary</p>
+            </div>
+            <p class="job-description mb-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse magnam labore temporibus! Quasi adipisci
+              totam, eos ratione dolorem consequatur. Odio.
+            </p>
+            <div class="expiration-container is-flex is-align-items-center mb-2">
+              <i class="fas fa-calendar-day"></i>
+              <p class="ml-2">Expires in...</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
