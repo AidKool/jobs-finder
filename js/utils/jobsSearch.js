@@ -1,7 +1,7 @@
 import { fetchJobsData } from './fetchJobsData.js';
 
-const keywords = ['developer', 'web developer'].join(',');
-const locationName = 'manchester';
+const keywords = ["developer", "web developer"].join(",");
+const locationName = "manchester";
 const distdistanceFromLocationance = 10;
 const permanent = true;
 const contract = true;
