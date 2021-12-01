@@ -9,7 +9,7 @@ import "./utils/renderJobsSearchData.js";
 // Define DOM elements
 const keywordsElement = document.querySelector("input.what");
 const locationElement = document.querySelector("input.where");
-const submitElement = document.querySelector("button.submit");
+const form = document.querySelector("form");
 const distanceElement = document.querySelector("select.distance");
 const salaryFromElement = document.querySelector("select.starting-salary");
 const salaryToElement = document.querySelector("select.ending-salary");
@@ -48,4 +48,4 @@ const submitFunction = function (event) {
   console.log(checkedObj);
 };
 
-submitElement.addEventListener("click", submitFunction);
+form.addEventListener("submit", submitFunction);
