@@ -1,5 +1,11 @@
 import "./utils/jobsSearch.js";
 
+// import { renderJobsSearchData } from './utils/renderJobsSearchData.js';
+
+// renderJobsSearchData();
+
+import "./utils/renderJobsSearchData.js";
+
 // Define DOM elements
 const keywordsElement = document.querySelector("input.what");
 const locationElement = document.querySelector("input.where");
