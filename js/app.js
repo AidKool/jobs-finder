@@ -3,3 +3,4 @@
 // renderJobsSearchData();
 
 import './utils/renderJobsSearchData.js';
+import './utils/jobsSearch.js';

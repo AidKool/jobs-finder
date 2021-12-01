@@ -1,4 +1,4 @@
-import { fetchData } from './fetchData.js';
+import { fetchJobsData } from './fetchJobsData.js';
 
 const keywords = ['developer', 'web developer'].join(',');
 const locationName = 'manchester';
@@ -17,8 +17,19 @@ const resultsToTake = 10;
 const resultsToSkip = 5;
 
 const proxy = 'https://course-anywhere.herokuapp.com/';
-const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&location=${locationName}&resultsToTake=1`;
+const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=10`;
 
-const data = await fetchData(proxy + url);
+const rawData = await fetchJobsData(proxy + url);
+const data = rawData.results;
 
-console.log(data);
+export const jobs = data.map((job) => {
+  return {
+    id: job.jobId,
+    title: job.jobTitle,
+    employer: job.employerName,
+    location: job.locationName,
+    salaryRange:
+      job.minimumSalary && job.maximumSalary ? `£${job.minimumSalary} - £${job.maximumSalary}` : 'Salary negotiable',
+    description: job.jobDescription,
+  };
+});
