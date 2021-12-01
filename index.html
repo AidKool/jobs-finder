@@ -12,7 +12,10 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Jobs Finder</title>
   </head>
@@ -49,7 +52,10 @@
                   Profile
                 </div>
               </a>
-              <a class="navbar-item open-modal-button" data-target="report-a-bug">
+              <a
+                class="navbar-item open-modal-button"
+                data-target="report-a-bug"
+              >
                 <div>
                   <span class="icon is-small">
                     <i class="fa fa-bug"></i>
@@ -68,27 +74,35 @@
         <div class="column is-4-tablet is-4-desktop is-2-widescreen">
           <!--This is where the form elements will go in-->
           <form>
-            <div class="field">
+            <div class="what field">
               <label class="label">What</label>
               <p class="control">
-                <input class="input" type="text" placeholder="e.g. Full Stack Developer" />
+                <input
+                  class="what input"
+                  type="text"
+                  placeholder="e.g. Full Stack Developer"
+                />
               </p>
             </div>
-            <div class="field">
+            <div class="where field">
               <label class="label">Where</label>
               <p class="control">
-                <input class="input" type="text" placeholder="e.g. Manchester" />
+                <input
+                  class="where input"
+                  type="text"
+                  placeholder="e.g. Manchester"
+                />
               </p>
             </div>
             <div class="field center-column top">
               <label class="label">Distance</label>
               <div class="select is-fullwidth">
-                <select>
+                <select class="distance">
                   <option value="0">0 miles</option>
                   <option value="1">1 mile</option>
                   <option value="3">3 miles</option>
                   <option value="5">5 miles</option>
-                  <option value="10 is-selected">10 miles</option>
+                  <option value="10">10 miles</option>
                   <option value="15">15 miles</option>
                   <option value="20">20 miles</option>
                   <option value="20">30 miles</option>
@@ -99,7 +113,7 @@
             <div class="field center-column top">
               <label class="label">From: </label>
               <div class="select is-fullwidth">
-                <select>
+                <select class="starting-salary">
                   <option value>£ Any</option>
                   <option value="10000">Up to £10,000</option>
                   <option value="15000">£15,000</option>
@@ -126,7 +140,7 @@
             <div class="field center-column top">
               <label class="label">To: </label>
               <div class="select is-fullwidth">
-                <select>
+                <select class="ending-salary">
                   <option value>£ Any</option>
                   <option value="10000">Up to £10,000</option>
                   <option value="15000">£15,000</option>
@@ -154,23 +168,23 @@
               <label class="label">Job Type</label>
               <div class="center-column top">
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="permanent" />
                   Permanent
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="temporary" />
                   Temporary
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="contract" />
                   Contract
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="full-time" />
                   Full-time
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="part-time" />
                   Part-time
                 </label>
               </div>
@@ -179,18 +193,20 @@
               <label class="label">Posted by</label>
               <div class="center-column top">
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="agency" />
                   Agency
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" />
+                  <input type="checkbox" name="employer" />
                   Employer
                 </label>
               </div>
             </div>
             <div class="field">
               <div class="buttons">
-                <button class="button is-success is-fullwidth">Submit</button>
+                <button class="submit button is-success is-fullwidth">
+                  Submit
+                </button>
                 <button class="button is-light is-fullwidth">Cancel</button>
               </div>
             </div>
@@ -243,10 +259,13 @@
               <p class="ml-2">£min-salary - £max-salary</p>
             </div>
             <p class="job-description mb-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse magnam labore temporibus! Quasi adipisci
-              totam, eos ratione dolorem consequatur. Odio.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+              magnam labore temporibus! Quasi adipisci totam, eos ratione
+              dolorem consequatur. Odio.
             </p>
-            <div class="expiration-container is-flex is-align-items-center mb-2">
+            <div
+              class="expiration-container is-flex is-align-items-center mb-2"
+            >
               <i class="fas fa-calendar-day"></i>
               <p class="ml-2">Expires in...</p>
             </div>
