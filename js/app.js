@@ -4,10 +4,6 @@ import "./utils/jobsSearch.js";
 
 // renderJobsSearchData();
 
-<<<<<<< HEAD
-import './utils/renderJobsSearchData.js';
-import './utils/jobsSearch.js';
-=======
 import "./utils/renderJobsSearchData.js";
 
 // Define DOM elements
@@ -53,4 +49,3 @@ const submitFunction = function (event) {
 };
 
 submitElement.addEventListener("click", submitFunction);
->>>>>>> master
