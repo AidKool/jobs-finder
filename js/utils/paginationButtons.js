@@ -31,7 +31,7 @@ export function renderPaginationButtons(totalPages, start = 2) {
     .map((item) => {
       return `
       <li>
-      <a class="pagination-link" data-page="${item}">${item}</a>
+        <a class="pagination-link" data-page="${item}">${item}</a>
       </li> 
       `;
     })

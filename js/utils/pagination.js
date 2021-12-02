@@ -1,13 +1,14 @@
-// the function below does not work
+import { getAndDisplayJobsData } from './renderJobsSearchData.js';
+import { renderPaginationURL } from './renderPaginationURL.js';
+import { renderPaginationButtons } from './paginationButtons.js';
 
-/*
-1. it was just moved from a different context
-where it had access to all parameters
-2. the result of fetchJobs() must be stored in
-in a variable
-*/
+const url = localStorage.getItem('url');
 
-export function paginate(event) {
+const paginationContainer = document.querySelector('.pagination');
+let pageRetrieved = localStorage.getItem('currentPage');
+let currentPage = Number(pageRetrieved);
+
+paginationContainer.addEventListener('click', async function (event) {
   if (event.target.tagName === 'A') {
     let page = event.target.dataset.page;
 
@@ -18,7 +19,12 @@ export function paginate(event) {
     } else {
       currentPage = page;
     }
-    resultsToSkip = (currentPage - 1) * resultsToTake;
-    fetchJobs();
+    localStorage.setItem('currentPage', currentPage);
+    console.log('type', typeof currentPage);
+    const paginationURL = renderPaginationURL(url, currentPage);
+    console.log(paginationURL);
+    const jobsData = await getAndDisplayJobsData(paginationURL);
+    console.log('jobsData', jobsData);
+    renderPaginationButtons(jobsData.totalPages, currentPage);
   }
-}
+});
