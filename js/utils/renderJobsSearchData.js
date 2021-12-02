@@ -1,13 +1,11 @@
-import { jobs, totalResults } from './jobsSearch.js';
-
 const jobList = document.querySelector('.jobs > ul');
 const numberJobs = document.querySelector('.number-jobs');
 
-function renderNumberJobs() {
+export function renderNumberJobs({ totalResults }) {
   numberJobs.innerHTML = `${totalResults} matching jobs found`;
 }
 
-function renderJobsSearchData() {
+export function renderJobsSearchData({ jobs }) {
   jobList.innerHTML = `${jobs
     .map((job) => {
       return `<li class="card mb-5">
@@ -23,6 +21,3 @@ function renderJobsSearchData() {
     })
     .join('')}`;
 }
-
-renderNumberJobs();
-renderJobsSearchData();

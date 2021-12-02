@@ -1,5 +1,5 @@
 export const filters = {
-  keywords: ['developer', 'web developer'].join(','),
+  keywords: ['developer'].join(','),
   locationName: 'manchester',
   distanceFromLocationance: 10,
   permanent: true,
@@ -13,5 +13,5 @@ export const filters = {
   postedByDirectEmployer: true,
   graduate: true,
   resultsToTake: 1,
-  resultsToSkip: 5,
+  resultsToSkip: 0,
 };

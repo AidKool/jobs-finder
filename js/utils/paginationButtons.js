@@ -1,13 +1,11 @@
-import { totalPages } from './jobsSearch.js';
-
-// let totalPages = 5454;
-
 const pagContainer = document.querySelector('.pagination');
 
-function calculatePages() {
+function calculatePages(totalPages, start) {
   let pages = [];
 
-  for (let i = 1; i < totalPages && pages.length < 4; i++) {
+  pages.push(1);
+
+  for (let i = start; i < totalPages && pages.length < 4; i++) {
     pages.push(i);
   }
 
@@ -17,10 +15,17 @@ function calculatePages() {
   return pages;
 }
 
-export function initialisePaginationButtons() {
-  const pages = calculatePages();
+export function initialisePaginationButtons({ totalPages }) {
+  renderPaginationButtons(totalPages);
+  const btnPrev = document.querySelector('.pagination-previous');
+  btnPrev.classList.add('is-hidden');
+}
+
+export function renderPaginationButtons(totalPages, start = 2) {
+  const pages = calculatePages(totalPages, start);
 
   pagContainer.innerHTML = `
+  <a class="pagination-previous" data-page="prev">Prev</a>
   <ul class="pagination-list">
   ${pages
     .map((item) => {
@@ -32,6 +37,6 @@ export function initialisePaginationButtons() {
     })
     .join('')}
     </ul>  
-    <a class="pagination-next">Next</a>
+    <a class="pagination-next" data-page="next">Next</a>
 `;
 }

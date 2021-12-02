@@ -1,5 +1,12 @@
-import './utils/renderJobsSearchData.js';
-import { initialisePaginationButtons } from './utils/paginationButtons.js';
+import { filters } from './utils/filters.js';
+import { fetchJobs } from './utils/jobsSearch.js';
+import { renderNumberJobs, renderJobsSearchData } from './utils/renderJobsSearchData.js';
+import { initialisePaginationButtons, renderPaginationButtons } from './utils/paginationButtons.js';
+import { paginate } from './utils/pagination.js';
+
+let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
+
+const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=${resultsToTake}&resultsToSkip=${resultsToSkip}`;
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
@@ -42,4 +49,8 @@ const submitFunction = function (event) {
 };
 
 form.addEventListener('submit', submitFunction);
-initialisePaginationButtons();
+
+const data = await fetchJobs(url, filters);
+renderNumberJobs(data);
+renderJobsSearchData(data);
+initialisePaginationButtons(data);
