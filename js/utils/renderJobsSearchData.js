@@ -1,7 +1,11 @@
-// import { jobs } from '../mock/mockData.js';
-import { jobs } from './jobsSearch.js';
+import { jobs, totalResults } from './jobsSearch.js';
 
 const jobList = document.querySelector('.jobs > ul');
+const numberJobs = document.querySelector('.number-jobs');
+
+function renderNumberJobs() {
+  numberJobs.innerHTML = `${totalResults} matching jobs found`;
+}
 
 function renderJobsSearchData() {
   jobList.innerHTML = `${jobs
@@ -20,4 +24,5 @@ function renderJobsSearchData() {
     .join('')}`;
 }
 
+renderNumberJobs();
 renderJobsSearchData();

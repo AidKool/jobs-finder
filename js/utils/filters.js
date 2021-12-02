@@ -1,0 +1,17 @@
+export const filters = {
+  keywords: ['developer', 'web developer'].join(','),
+  locationName: 'manchester',
+  distanceFromLocationance: 10,
+  permanent: true,
+  contract: true,
+  temp: true,
+  partTime: true,
+  fullTime: true,
+  minimumSalary: 20000,
+  maximumSalary: 25000,
+  postedByRecruitmentAgency: true,
+  postedByDirectEmployer: true,
+  graduate: true,
+  resultsToTake: 1,
+  resultsToSkip: 5,
+};

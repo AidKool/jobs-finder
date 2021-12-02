@@ -1,28 +1,16 @@
 import { fetchJobsData } from './fetchJobsData.js';
+import { filters } from './filters.js';
 
-const keywords = ["developer", "web developer"].join(",");
-const locationName = "manchester";
-const distdistanceFromLocationance = 10;
-const permanent = true;
-const contract = true;
-const temp = true;
-const partTime = true;
-const fullTime = true;
-const minimumSalary = 20000;
-const maximumSalary = 25000;
-const postedByRecruitmentAgency = true;
-const postedByDirectEmployer = true;
-const graduate = true;
-const resultsToTake = 10;
-const resultsToSkip = 5;
+const { keywords, locationName, resultsToTake } = filters;
 
 const proxy = 'https://course-anywhere.herokuapp.com/';
-const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=10`;
+const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=${resultsToTake}`;
 
 const rawData = await fetchJobsData(proxy + url);
-const data = rawData.results;
-
-export const jobs = data.map((job) => {
+const { results } = rawData;
+export const { totalResults } = rawData;
+export const totalPages = Math.ceil(totalResults / resultsToTake);
+export const jobs = results.map((job) => {
   return {
     id: job.jobId,
     title: job.jobTitle,
