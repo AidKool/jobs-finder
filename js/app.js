@@ -3,6 +3,10 @@ import { fetchJobs } from './utils/jobsSearch.js';
 import { renderNumberJobs, renderJobsSearchData } from './utils/renderJobsSearchData.js';
 import { initialisePaginationButtons, renderPaginationButtons } from './utils/paginationButtons.js';
 import { paginate } from './utils/pagination.js';
+import { renderUrl } from "./utils/renderUrl.js";
+import { map, tileLayer, marker_man, marker_ldn } from "./utils/leaflet.js";
+import "./utils/renderJobsSearchData.js";
+import { getAndDisplayJobsData } from "./utils/renderJobsSearchData.js";
 
 let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
 
@@ -39,13 +43,31 @@ const submitFunction = function (event) {
   let distance = distanceElement.value;
   let minimumSalary = salaryFromElement.value;
   let maximumSalary = salaryToElement.value;
-  let checkedObj = Object.assign(...checkedCriteria.map((k) => ({ [k]: true })));
-  console.log(locationName);
-  console.log(keywords);
-  console.log(distance);
-  console.log(minimumSalary);
-  console.log(maximumSalary);
-  console.log(checkedObj);
+  // let checkedObj = Object.assign(...checkedCriteria.map((k) => ({ [k]: true })));
+  // console.log(locationName);
+  // console.log(keywords);
+  // console.log(distance);
+  // console.log(minimumSalary);
+  // console.log(maximumSalary);
+  // console.log(checkedObj);
+  // console.log(checkedCriteria);
+  let checkedUrl = checkedCriteria
+    .map((k) => {
+      return `&${k}=true`;
+    })
+    .join("");
+  // Below function will render the url
+  let url = renderUrl(
+    keywords,
+    distance,
+    minimumSalary,
+    maximumSalary,
+    locationName,
+    checkedUrl
+  );
+  console.log(url);
+  // Gets and displays job data
+  getAndDisplayJobsData(url);
 };
 
 form.addEventListener('submit', submitFunction);

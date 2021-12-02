@@ -1,4 +1,4 @@
-import { fetchJobsData } from './fetchJobsData.js';
+import { fetchJobsData } from "./fetchJobsData.js";
 
 const proxy = 'https://course-anywhere.herokuapp.com/';
 

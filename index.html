@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
       integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
       crossorigin="anonymous"
@@ -100,7 +111,7 @@
               <label class="label">From: </label>
               <div class="select is-fullwidth">
                 <select class="starting-salary">
-                  <option value>£ Any</option>
+                  <option value="0">£ Any</option>
                   <option value="10000">Up to £10,000</option>
                   <option value="15000">£15,000</option>
                   <option value="20000">£20,000</option>
@@ -127,7 +138,7 @@
               <label class="label">To: </label>
               <div class="select is-fullwidth">
                 <select class="ending-salary">
-                  <option value>£ Any</option>
+                  <option value="100000">£ Any</option>
                   <option value="10000">Up to £10,000</option>
                   <option value="15000">£15,000</option>
                   <option value="20000">£20,000</option>
@@ -158,7 +169,7 @@
                   Permanent
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="temporary" />
+                  <input type="checkbox" name="temp" />
                   Temporary
                 </label>
                 <label class="checkbox">
@@ -166,11 +177,11 @@
                   Contract
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="full-time" />
+                  <input type="checkbox" name="fullTime" />
                   Full-time
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="part-time" />
+                  <input type="checkbox" name="partTime" />
                   Part-time
                 </label>
               </div>
@@ -179,11 +190,11 @@
               <label class="label">Posted by</label>
               <div class="center-column top">
                 <label class="checkbox">
-                  <input type="checkbox" name="agency" />
+                  <input type="checkbox" name="postedByRecruitmentAgency" />
                   Agency
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="employer" />
+                  <input type="checkbox" name="postedByDirectEmployer" />
                   Employer
                 </label>
               </div>
@@ -198,6 +209,7 @@
         </div>
 
         <div class="column">
+          <section id="map" class="map"></section>
           <section class="jobs">
             <p class="number-jobs mb-3"></p>
             <ul></ul>
