@@ -12,8 +12,9 @@ export async function getAndDisplayJobsData(url) {
   renderJobsSearchData(jobsData);
 }
 
-export const renderJobsSearchData = ({ jobData }) => {
-  return (jobList.innerHTML = `${jobData
+export const renderJobsSearchData = ({ jobs }) => {
+  console.log(jobs);
+  const jobString = jobs
     .map((job) => {
       return `<li class="card mb-5">
                 <article class="card-content content">
@@ -26,5 +27,6 @@ export const renderJobsSearchData = ({ jobData }) => {
                 </article>
               </li>`;
     })
-    .join('')}`);
+    .join('');
+  jobList.innerHTML = jobString;
 };
