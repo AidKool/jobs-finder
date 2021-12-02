@@ -1,8 +1,8 @@
-import { fetchJobsData } from './fetchJobsData.js';
+import { fetchJobsData } from "./fetchJobsData.js";
 
 const keywords = ["developer", "web developer"].join(",");
 const locationName = "manchester";
-const distdistanceFromLocationance = 10;
+const distanceFromLocation = 10;
 const permanent = true;
 const contract = true;
 const temp = true;
@@ -16,8 +16,8 @@ const graduate = true;
 const resultsToTake = 10;
 const resultsToSkip = 5;
 
-const proxy = 'https://course-anywhere.herokuapp.com/';
-const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=10`;
+const proxy = "https://course-anywhere.herokuapp.com/";
+const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&distanceFromLocation=${distanceFromLocation}&permanent=${permanent}&contract=${contract}&temp=${temp}&partTime=${partTime}&fullTime=${fullTime}&minimumSalary=${minimumSalary}&maximumSalary=${maximumSalary}&postedByRecruitmentAgency=${postedByRecruitmentAgency}&postedByDirectEmployer=${postedByDirectEmployer}&locationName=${locationName}&resultsToTake=10`;
 
 const rawData = await fetchJobsData(proxy + url);
 const data = rawData.results;
@@ -29,7 +29,9 @@ export const jobs = data.map((job) => {
     employer: job.employerName,
     location: job.locationName,
     salaryRange:
-      job.minimumSalary && job.maximumSalary ? `£${job.minimumSalary} - £${job.maximumSalary}` : 'Salary negotiable',
+      job.minimumSalary && job.maximumSalary
+        ? `£${job.minimumSalary} - £${job.maximumSalary}`
+        : "Salary negotiable",
     description: job.jobDescription,
   };
 });

@@ -4,6 +4,8 @@ import "./utils/jobsSearch.js";
 
 // renderJobsSearchData();
 
+import { renderUrl } from "./utils/renderUrl.js";
+
 import "./utils/renderJobsSearchData.js";
 
 // Define DOM elements
@@ -37,15 +39,21 @@ const submitFunction = function (event) {
   let distance = distanceElement.value;
   let minimumSalary = salaryFromElement.value;
   let maximumSalary = salaryToElement.value;
-  let checkedObj = Object.assign(
-    ...checkedCriteria.map((k) => ({ [k]: true }))
+  // console.log(checkedCriteria);
+  let checkedUrl = checkedCriteria
+    .map((k) => {
+      return `&${k}=true`;
+    })
+    .join("");
+  // Below function will render the url (you can now see in console log too - To be removed later after review)
+  renderUrl(
+    keywords,
+    distance,
+    minimumSalary,
+    maximumSalary,
+    locationName,
+    checkedUrl
   );
-  console.log(locationName);
-  console.log(keywords);
-  console.log(distance);
-  console.log(minimumSalary);
-  console.log(maximumSalary);
-  console.log(checkedObj);
 };
 
 form.addEventListener("submit", submitFunction);
