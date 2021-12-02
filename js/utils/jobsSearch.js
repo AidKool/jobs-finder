@@ -1,11 +1,11 @@
-import { fetchJobsData } from "./fetchJobsData.js";
+import { fetchJobsData } from './fetchJobsData.js';
 
 const proxy = 'https://course-anywhere.herokuapp.com/';
 
-export async function fetchJobs(url, { resultsToTake }) {
+export async function fetchJobs(url) {
   const rawData = await fetchJobsData(proxy + url);
   const { results, totalResults } = rawData;
-  const totalPages = Math.ceil(totalResults / resultsToTake);
+  const totalPages = Math.ceil(totalResults / 2);
   const jobs = results.map((job) => {
     return {
       id: job.jobId,
