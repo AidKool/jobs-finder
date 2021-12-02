@@ -5,6 +5,7 @@ import "./utils/jobsSearch.js";
 // renderJobsSearchData();
 
 import { renderUrl } from "./utils/renderUrl.js";
+import { map, tileLayer, marker_man, marker_ldn } from "./utils/leaflet.js";
 
 import "./utils/renderJobsSearchData.js";
 
