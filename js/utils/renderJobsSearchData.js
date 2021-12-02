@@ -10,6 +10,7 @@ export function renderNumberJobs({ totalResults }) {
 export async function getAndDisplayJobsData(url) {
   const jobsData = await fetchJobs(url);
   renderJobsSearchData(jobsData);
+  return jobsData;
 }
 
 export const renderJobsSearchData = ({ jobs }) => {
