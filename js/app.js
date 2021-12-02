@@ -1,6 +1,7 @@
 import "./utils/jobsSearch.js";
 
-// import { renderJobsSearchData } from './utils/renderJobsSearchData.js';
+// import { renderJobsSearchData } from "./utils/renderJobsSearchData.js";
+import { getAndDisplayJobsData } from "./utils/renderJobsSearchData.js";
 
 // renderJobsSearchData();
 
@@ -46,8 +47,8 @@ const submitFunction = function (event) {
       return `&${k}=true`;
     })
     .join("");
-  // Below function will render the url (you can now see in console log too - To be removed later after review)
-  renderUrl(
+  // Below function will render the url
+  let url = renderUrl(
     keywords,
     distance,
     minimumSalary,
@@ -55,6 +56,9 @@ const submitFunction = function (event) {
     locationName,
     checkedUrl
   );
+  console.log(url);
+  // Gets and displays job data
+  getAndDisplayJobsData(url);
 };
 
 form.addEventListener("submit", submitFunction);

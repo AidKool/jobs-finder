@@ -14,4 +14,5 @@ export const renderUrl = (
       )}&distanceFromLocation=${distance}&minimumSalary=${minimumSalary}&maximumSalary=${maximumSalary}&locationName=${locationName}&resultsToTake=10` +
     checkedUrl;
   console.log(url);
+  return url;
 };

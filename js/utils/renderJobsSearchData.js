@@ -1,10 +1,16 @@
 // import { jobs } from '../mock/mockData.js';
-import { jobs } from './jobsSearch.js';
+// import { jobs } from "./jobsSearch.js";
+import { getJobs } from "./jobsSearch.js";
 
-const jobList = document.querySelector('.jobs > ul');
+const jobList = document.querySelector(".jobs > ul");
 
-function renderJobsSearchData() {
-  jobList.innerHTML = `${jobs
+export async function getAndDisplayJobsData(url) {
+  const jobsData = await getJobs(url);
+  renderJobsSearchData(jobsData);
+}
+
+export const renderJobsSearchData = (jobData) => {
+  return (jobList.innerHTML = `${jobData
     .map((job) => {
       return `<li class="card mb-5">
                 <article class="card-content content">
@@ -17,7 +23,7 @@ function renderJobsSearchData() {
                 </article>
               </li>`;
     })
-    .join('')}`;
-}
+    .join("")}`);
+};
 
-renderJobsSearchData();
+// renderJobsSearchData();
