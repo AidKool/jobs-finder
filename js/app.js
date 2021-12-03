@@ -8,6 +8,7 @@ import { renderUrl } from './utils/renderUrl.js';
 import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
 import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
+import './utils/getIndividualJobData.js';
 
 // let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
 
