@@ -1,10 +1,22 @@
-// import { jobs } from '../mock/mockData.js';
-import { jobs } from './jobsSearch.js';
+import { fetchJobs } from './jobsSearch.js';
 
 const jobList = document.querySelector('.jobs > ul');
+const numberJobs = document.querySelector('.number-jobs');
 
-function renderJobsSearchData() {
-  jobList.innerHTML = `${jobs
+export function renderNumberJobs({ totalResults }) {
+  numberJobs.innerHTML = `${totalResults} matching jobs found`;
+}
+
+export async function getAndDisplayJobsData(url) {
+  const jobsData = await fetchJobs(url);
+  renderNumberJobs(jobsData);
+  renderJobsSearchData(jobsData);
+  return jobsData;
+}
+
+export const renderJobsSearchData = ({ jobs }) => {
+  console.log(jobs);
+  const jobString = jobs
     .map((job) => {
       return `<li class="card mb-5">
                 <article class="card-content content">
@@ -17,7 +29,6 @@ function renderJobsSearchData() {
                 </article>
               </li>`;
     })
-    .join('')}`;
-}
-
-renderJobsSearchData();
+    .join('');
+  jobList.innerHTML = jobString;
+};
