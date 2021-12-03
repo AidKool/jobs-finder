@@ -3,7 +3,6 @@ const jobTitleEl = document.querySelector('job-title');
 const modalEl = document.querySelector('modal');
 
 function displayJob () {
-    cardEl.classList.add('hide');
     modalEl.classList.add('is-active');
 }
 
