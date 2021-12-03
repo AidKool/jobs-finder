@@ -55,3 +55,17 @@ JOBS LIST
   color: hsl(229, 86%, 56%);
   text-decoration: underline;
 }
+
+/********** 
+JOBS MODAL
+**********/
+.jobs-modal {
+  z-index: 100;
+}
+
+/********** 
+MAP
+**********/
+#map {
+  z-index: 0;
+}
