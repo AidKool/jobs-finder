@@ -1,11 +1,13 @@
-const pagContainer = document.querySelector('.pagination');
+const paginationContainer = document.querySelector('.pagination');
 
-function calculatePages(totalPages, start) {
+function calculatePages(totalPages, currentPage) {
   let pages = [];
 
-  pages.push(1);
+  if (currentPage > 1) {
+    pages.push(1);
+  }
 
-  for (let i = start; i < totalPages && pages.length < 4; i++) {
+  for (let i = currentPage; i < totalPages && pages.length < 4; i++) {
     pages.push(i);
   }
 
@@ -16,15 +18,15 @@ function calculatePages(totalPages, start) {
 }
 
 export function initialisePaginationButtons({ totalPages }) {
-  renderPaginationButtons(totalPages);
+  renderPaginationButtons(totalPages, 1);
   const btnPrev = document.querySelector('.pagination-previous');
   btnPrev.classList.add('is-hidden');
 }
 
-export function renderPaginationButtons(totalPages, start = 2) {
-  const pages = calculatePages(totalPages, start);
+export function renderPaginationButtons(totalPages, currentPage) {
+  const pages = calculatePages(totalPages, currentPage);
 
-  pagContainer.innerHTML = `
+  paginationContainer.innerHTML = `
   <a class="pagination-previous" data-page="prev">Prev</a>
   <ul class="pagination-list">
   ${pages
@@ -39,4 +41,17 @@ export function renderPaginationButtons(totalPages, start = 2) {
     </ul>  
     <a class="pagination-next" data-page="next">Next</a>
 `;
+  showActivePage(currentPage);
+}
+
+function showActivePage(currentPage) {
+  console.log('inside show active');
+  console.log('current page', currentPage);
+  const paginationLinks = document.querySelectorAll('.pagination li > a');
+  paginationLinks.forEach((button) => {
+    button.classList.remove('is-current');
+    if (Number(button.dataset.page) === currentPage) {
+      button.classList.add('is-current');
+    }
+  });
 }
