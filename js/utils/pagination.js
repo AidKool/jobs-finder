@@ -1,12 +1,12 @@
 import { getAndDisplayJobsData } from './renderJobsSearchData.js';
 import { renderPaginationURL } from './renderPaginationURL.js';
-import { renderPaginationButtons } from './paginationButtons.js';
+import { initialisePaginationButtons, renderPaginationButtons } from './paginationButtons.js';
 
 const paginationContainer = document.querySelector('.pagination');
-let pageRetrieved = localStorage.getItem('currentPage');
-let currentPage = Number(pageRetrieved);
 
 paginationContainer.addEventListener('click', async function (event) {
+  let pageRetrieved = localStorage.getItem('currentPage');
+  let currentPage = Number(pageRetrieved);
   if (event.target.tagName === 'A') {
     let page = event.target.dataset.page;
 
@@ -15,13 +15,17 @@ paginationContainer.addEventListener('click', async function (event) {
     } else if (page === 'prev') {
       currentPage--;
     } else {
-      currentPage = page;
+      currentPage = Number(page);
     }
     localStorage.setItem('currentPage', currentPage);
     const url = localStorage.getItem('url');
 
     const paginationURL = renderPaginationURL(url, currentPage);
     const jobsData = await getAndDisplayJobsData(paginationURL);
-    renderPaginationButtons(jobsData.totalPages, currentPage);
+    if (currentPage === 1) {
+      initialisePaginationButtons(jobsData);
+    } else {
+      renderPaginationButtons(jobsData.totalPages, currentPage);
+    }
   }
 });

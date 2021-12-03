@@ -45,8 +45,6 @@ export function renderPaginationButtons(totalPages, currentPage) {
 }
 
 function showActivePage(currentPage) {
-  console.log('inside show active');
-  console.log('current page', currentPage);
   const paginationLinks = document.querySelectorAll('.pagination li > a');
   paginationLinks.forEach((button) => {
     button.classList.remove('is-current');
