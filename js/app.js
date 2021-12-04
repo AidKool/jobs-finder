@@ -8,7 +8,7 @@ import { renderUrl } from './utils/renderUrl.js';
 import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
 import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
-
+import { geoCodeApi } from './utils/geocode.js';
 // let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
 
 // const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=${resultsToTake}&resultsToSkip=${resultsToSkip}`;
@@ -101,4 +101,5 @@ form.addEventListener('submit', async function (event) {
   const jobsData = await getAndDisplayJobsData(url);
   console.log('jobsData', jobsData);
   initialisePaginationButtons(jobsData);
-});
+  geoCodeApi(locationElement.value)
+})
