@@ -20,7 +20,7 @@ export const renderJobsSearchData = ({ jobs }) => {
     .map((job) => {
       return `<li class="card mb-5">
                 <article class="card-content content">
-                  <h3 class="title mb-4">${job.title}</h3>
+                  <h3 class="title mb-4" data-id="${job.id}">${job.title}</h3>
                   <p>${job.employer}</p>
                   <p>${job.location}</p>
                   <p>${job.salaryRange}</p>
