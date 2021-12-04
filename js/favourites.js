@@ -1,4 +1,5 @@
 import { renderJobsSearchData } from './utils/renderJobsSearchData.js';
+import './utils/getIndividualJobData.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 
