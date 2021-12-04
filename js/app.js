@@ -1,6 +1,9 @@
 // import { filters } from './utils/filters.js';
 import { fetchJobs } from './utils/jobsSearch.js';
-import { renderNumberJobs, renderJobsSearchData } from './utils/renderJobsSearchData.js';
+import {
+  renderNumberJobs,
+  renderJobsSearchData,
+} from './utils/renderJobsSearchData.js';
 import { initialisePaginationButtons } from './utils/paginationButtons.js';
 // import { paginate } from './utils/pagination.js';
 import './utils/pagination.js';
@@ -9,6 +12,8 @@ import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
 import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
 import './utils/getIndividualJobData.js';
+
+const favouritesBtn = document.querySelector('.favourites');
 
 // let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
 
@@ -91,7 +96,14 @@ form.addEventListener('submit', async function (event) {
     })
     .join('');
   // Below function will render the url
-  let url = renderUrl(keywords, distance, minimumSalary, maximumSalary, locationName, checkedUrl);
+  let url = renderUrl(
+    keywords,
+    distance,
+    minimumSalary,
+    maximumSalary,
+    locationName,
+    checkedUrl
+  );
   // 1. save url to local storage
   localStorage.setItem('url', url);
   localStorage.setItem('currentPage', 1);
@@ -102,4 +114,8 @@ form.addEventListener('submit', async function (event) {
   const jobsData = await getAndDisplayJobsData(url);
   console.log('jobsData', jobsData);
   initialisePaginationButtons(jobsData);
+});
+
+favouritesBtn.addEventListener('click', function () {
+  window.location.replace('/favourites.html');
 });
