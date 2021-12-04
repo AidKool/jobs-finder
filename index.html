@@ -10,6 +10,7 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script
       src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -23,7 +24,10 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Jobs Finder</title>
   </head>
@@ -60,7 +64,11 @@
                   Profile
                 </div>
               </a>
-              <a class="navbar-item open-modal-button" data-target="report-a-bug">
+              <a class="navbar-item favourites">Favourites</a>
+              <a
+                class="navbar-item open-modal-button"
+                data-target="report-a-bug"
+              >
                 <div>
                   <span class="icon is-small">
                     <i class="fa fa-bug"></i>
@@ -82,13 +90,21 @@
             <div class="what field">
               <label class="label">What</label>
               <p class="control">
-                <input class="what input" type="text" placeholder="e.g. Full Stack Developer" />
+                <input
+                  class="what input"
+                  type="text"
+                  placeholder="e.g. Full Stack Developer"
+                />
               </p>
             </div>
             <div class="where field">
               <label class="label">Where</label>
               <p class="control">
-                <input class="where input" type="text" placeholder="e.g. Manchester" />
+                <input
+                  class="where input"
+                  type="text"
+                  placeholder="e.g. Manchester"
+                />
               </p>
             </div>
             <div class="field center-column top">
@@ -201,7 +217,12 @@
             </div>
             <div class="field">
               <div class="buttons">
-                <button type="submit" class="submit button is-success is-fullwidth">Submit</button>
+                <button
+                  type="submit"
+                  class="submit button is-success is-fullwidth"
+                >
+                  Submit
+                </button>
                 <button class="button is-light is-fullwidth">Cancel</button>
               </div>
             </div>
@@ -274,5 +295,6 @@
     </footer>
     <!-- javascript -->
     <script type="module" src="./js/app.js"></script>
+    <script type="module" src="./js/utils/geocode.js"></script>
   </body>
 </html>
