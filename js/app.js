@@ -13,6 +13,8 @@ import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
 import { geoCodeApi } from './utils/geocode.js';
 import './utils/getIndividualJobData.js';
+import { renderOnsUrl } from './utils/renderOnsUrl.js';
+import { fetchOnsData } from './utils/fetchOnsData.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 
@@ -121,4 +123,17 @@ form.addEventListener('submit', async function (event) {
 
 favouritesBtn.addEventListener('click', function () {
   window.location.replace('/favourites.html');
+});
+
+window.addEventListener('DOMContentLoaded', async (event) => {
+  let OnsUrl = renderOnsUrl('happiness');
+  console.log(OnsUrl);
+  let OnsData = await fetchOnsData(OnsUrl);
+  const { observations } = OnsData;
+  let wellbeing = observations.map(({ observation }) => observation);
+  let geography = observations.map((a) => a.dimensions['Geography'].label);
+  // console.log(geography);
+  // console.log(wellbeing);
+  // console.log(observations);
+  console.log('DOM fully loaded and parsed');
 });
