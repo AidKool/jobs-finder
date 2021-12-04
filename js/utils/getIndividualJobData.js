@@ -3,7 +3,6 @@ import { renderInvididualJobData } from './renderIndividualJobData.js';
 
 const jobsModal = document.querySelector('.jobs-modal');
 const jobList = document.querySelector('.jobs > ul');
-// const modalBg = document.querySelector('.modal-background');
 
 const url = 'https://www.reed.co.uk/api/1.0/jobs/';
 

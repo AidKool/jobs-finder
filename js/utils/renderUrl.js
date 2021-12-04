@@ -1,4 +1,11 @@
-export const renderUrl = (keywords, distance, minimumSalary, maximumSalary, locationName, checkedUrl) => {
+export const renderUrl = (
+  keywords,
+  distance,
+  minimumSalary,
+  maximumSalary,
+  locationName,
+  checkedUrl
+) => {
   const url =
     `https://www.reed.co.uk/api/1.0/search?keywords=${keywords
       .split(' ')
