@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const requestUrl = 'https://geocode.xyz/locate?json=1'
 
 // $.ajax({
@@ -27,3 +28,14 @@
   });
 
   
+=======
+export async function getCoordinates(city) {
+  const url = `https://geocode.xyz/${city}?json=1`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return {
+    lon: data.longt,
+    lat: data.latt,
+  };
+}
+>>>>>>> 33d699a861e9d389aa61c903b4ea9d57f8c957f6

@@ -1,16 +1,20 @@
-import { filters } from './utils/filters.js';
 import { fetchJobs } from './utils/jobsSearch.js';
-import { renderNumberJobs, renderJobsSearchData } from './utils/renderJobsSearchData.js';
-import { initialisePaginationButtons, renderPaginationButtons } from './utils/paginationButtons.js';
-import { paginate } from './utils/pagination.js';
-import { renderUrl } from "./utils/renderUrl.js";
-import { map, tileLayer, marker_man, marker_ldn } from "./utils/leaflet.js";
-import "./utils/renderJobsSearchData.js";
-import { getAndDisplayJobsData } from "./utils/renderJobsSearchData.js";
+import {
+  renderNumberJobs,
+  renderJobsSearchData,
+} from './utils/renderJobsSearchData.js';
+import { initialisePaginationButtons } from './utils/paginationButtons.js';
+import './utils/pagination.js';
+import { renderUrl } from './utils/renderUrl.js';
+import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
+import './utils/renderJobsSearchData.js';
+import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
+import { getCoordinates } from './utils/geocode.js';
+import './utils/getIndividualJobData.js';
+import { renderOnsUrl } from './utils/renderOnsUrl.js';
+import { fetchOnsData } from './utils/fetchOnsData.js';
 
-let { keywords, locationName, resultsToTake, resultsToSkip } = filters;
-
-const url = `https://www.reed.co.uk/api/1.0/search?keywords=${keywords}&locationName=${locationName}&resultsToTake=${resultsToTake}&resultsToSkip=${resultsToSkip}`;
+const favouritesBtn = document.querySelector('.favourites');
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
@@ -24,7 +28,6 @@ const salaryToElement = document.querySelector('select.ending-salary');
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
 
 let checkedCriteria = [];
-
 // Use Array.forEach to add an event listener to each checkbox.
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', function () {
@@ -32,30 +35,22 @@ checkboxes.forEach(function (checkbox) {
       .filter((i) => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map((i) => i.attributes[1].nodeValue); // Use Array.map to extract only the checkbox names from the array of objects.
 
-    console.log(checkedCriteria);
+    // console.log(checkedCriteria);
   });
 });
 
-const submitFunction = function (event) {
+form.addEventListener('submit', async function (event) {
   event.preventDefault();
   let locationName = locationElement.value;
   let keywords = keywordsElement.value;
   let distance = distanceElement.value;
   let minimumSalary = salaryFromElement.value;
   let maximumSalary = salaryToElement.value;
-  // let checkedObj = Object.assign(...checkedCriteria.map((k) => ({ [k]: true })));
-  // console.log(locationName);
-  // console.log(keywords);
-  // console.log(distance);
-  // console.log(minimumSalary);
-  // console.log(maximumSalary);
-  // console.log(checkedObj);
-  // console.log(checkedCriteria);
   let checkedUrl = checkedCriteria
     .map((k) => {
       return `&${k}=true`;
     })
-    .join("");
+    .join('');
   // Below function will render the url
   let url = renderUrl(
     keywords,
@@ -65,14 +60,54 @@ const submitFunction = function (event) {
     locationName,
     checkedUrl
   );
+  // save url to local storage
+  localStorage.setItem('url', url);
+  localStorage.setItem('currentPage', 1);
+  //invoke getAndDisplayJobsData with the new url inside the pagination button event listener
   console.log(url);
   // Gets and displays job data
-  getAndDisplayJobsData(url);
-};
+  const jobsData = await getAndDisplayJobsData(url);
+  initialisePaginationButtons(jobsData);
+  const coords = await getCoordinates(locationElement.value);
+  console.log(coords);
+});
 
-form.addEventListener('submit', submitFunction);
+favouritesBtn.addEventListener('click', function () {
+  window.location.replace('/favourites.html');
+});
 
-const data = await fetchJobs(url, filters);
-renderNumberJobs(data);
-renderJobsSearchData(data);
-initialisePaginationButtons(data);
+window.addEventListener('DOMContentLoaded', async (event) => {
+  let array = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
+  let allowed = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
+  let storedArray = [];
+
+  array.forEach(async (e) => {
+    const url = renderOnsUrl(e);
+    console.log(url);
+    const data = await fetchOnsData(url);
+    const { observations } = data;
+    let wellbeing = observations.map(({ observation }) => observation);
+    let geography = observations.map((a) => a.dimensions['Geography'].label);
+    var result = {};
+    geography.forEach((key, i) => (result[key] = wellbeing[i]));
+    const filtered = Object.keys(result)
+      .filter((key) => allowed.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = result[key];
+        return obj;
+      }, {});
+    storedArray.push(filtered);
+    // Object created
+    var obj = {};
+
+    // Using loop to insert key to value in object
+    for (var i = 0; i < array.length; i++) {
+      obj[array[i]] = storedArray[i];
+    }
+    console.log(storedArray);
+    console.log(obj);
+    localStorage.setItem('ons', JSON.stringify(obj));
+  });
+
+  console.log('DOM fully loaded and parsed');
+});
