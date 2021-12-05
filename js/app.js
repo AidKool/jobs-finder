@@ -35,7 +35,7 @@ checkboxes.forEach(function (checkbox) {
       .filter((i) => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map((i) => i.attributes[1].nodeValue); // Use Array.map to extract only the checkbox names from the array of objects.
 
-    console.log(checkedCriteria);
+    // console.log(checkedCriteria);
   });
 });
 
@@ -77,11 +77,37 @@ favouritesBtn.addEventListener('click', function () {
 });
 
 window.addEventListener('DOMContentLoaded', async (event) => {
-  let OnsUrl = renderOnsUrl('happiness');
-  console.log(OnsUrl);
-  let OnsData = await fetchOnsData(OnsUrl);
-  const { observations } = OnsData;
-  let wellbeing = observations.map(({ observation }) => observation);
-  let geography = observations.map((a) => a.dimensions['Geography'].label);
+  let array = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
+  let allowed = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
+  let storedArray = [];
+
+  array.forEach(async (e) => {
+    const url = renderOnsUrl(e);
+    console.log(url);
+    const data = await fetchOnsData(url);
+    const { observations } = data;
+    let wellbeing = observations.map(({ observation }) => observation);
+    let geography = observations.map((a) => a.dimensions['Geography'].label);
+    var result = {};
+    geography.forEach((key, i) => (result[key] = wellbeing[i]));
+    const filtered = Object.keys(result)
+      .filter((key) => allowed.includes(key))
+      .reduce((obj, key) => {
+        obj[key] = result[key];
+        return obj;
+      }, {});
+    storedArray.push(filtered);
+    // Object created
+    var obj = {};
+
+    // Using loop to insert key to value in object
+    for (var i = 0; i < array.length; i++) {
+      obj[array[i]] = storedArray[i];
+    }
+    console.log(storedArray);
+    console.log(obj);
+    localStorage.setItem('ons', JSON.stringify(obj));
+  });
+
   console.log('DOM fully loaded and parsed');
 });
