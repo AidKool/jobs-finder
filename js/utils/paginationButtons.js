@@ -34,10 +34,9 @@ export function renderPaginationButtons(totalPages, currentPage) {
   ${pages
     .map((item, index, array) => {
       let newItem = `<li>
-                <a class="pagination-link" data-page="${item}">${item}</a>
-              </li>`;
+                       <a class="pagination-link" data-page="${item}">${item}</a>
+                     </li>`;
       if (array[index + 1] && item + 1 !== array[index + 1]) {
-        console.log('item+1:', item + 1);
         newItem += `<li>
                       <span class="pagination-ellipsis">&hellip;</span>
                     </li>`;
