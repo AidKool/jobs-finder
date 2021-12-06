@@ -22,9 +22,18 @@ export const renderJobsSearchData = (jobs) => {
       return `<li class="card mb-5">
                 <article class="card-content content">
                   <h3 class="title mb-4" data-id="${job.id}">${job.title}</h3>
-                  <p>${job.employer}</p>
-                  <p>${job.location}</p>
-                  <p>${job.salaryRange}</p>
+                  <div class="company-container is-flex is-align-items-center mb-2">
+                  <i class="fas fa-building"></i>
+                  <p class="ml-2">${job.employer}</p>
+                  </div>
+                  <div class="location-container is-flex is-align-items-center mb-2">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p class="ml-2">${job.location}</p>
+                  </div>
+                  <div class="salary-container is-flex is-align-items-center mb-2">
+                  <i class="fas fa-pound-sign"></i>
+                  <p class="ml-2">${job.salaryRange}</p>
+                  </div>
                   <p>${job.description}</p>
                   <button class="button favourite" data-order="${index}">Favourite<i class="far fa-heart ml-2"></i></button>
                 </article>
