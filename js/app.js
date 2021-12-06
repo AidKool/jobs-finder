@@ -14,6 +14,7 @@ import './utils/getIndividualJobData.js';
 import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
 import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
+import './utils/toggleForm.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 
@@ -69,6 +70,7 @@ form.addEventListener('submit', async function (event) {
   // Gets and displays job data
   const jobsData = await getAndDisplayJobsData(url);
   initialisePaginationButtons(jobsData);
+  form.classList.add('is-hidden');
 });
 
 favouritesBtn.addEventListener('click', function () {
@@ -144,13 +146,13 @@ async function addMarker(city, index, array) {
   const url = renderGeocodeUrl(city);
   const coords = await getCoordinates(url);
   coords['id'] = array[index];
-  // var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-  var marker = L.circle([coords.latitude, coords.longitude], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 10000,
-  }).addTo(map);
+  var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
+  // var marker = L.circle([coords.latitude, coords.longitude], {
+  //   color: 'red',
+  //   fillColor: '#f03',
+  //   fillOpacity: 0.5,
+  //   radius: 10000,
+  // }).addTo(map);
   let storedOns = JSON.parse(localStorage.getItem('ons'));
   marker.bindPopup(`<b> ${city}: </b> 
   <br>
