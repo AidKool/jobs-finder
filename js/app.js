@@ -76,44 +76,40 @@ favouritesBtn.addEventListener('click', function () {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  let array = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-  let allowed = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
-  let storedArray = [];
+  let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
+  let cities = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
+  let factorsFiltered = [];
   let coordinates = [];
 
-  allowed.forEach(async (e, i) => {
-    const url = renderGeocodeUrl(e);
-    let coords = await getCoordinates(url);
-    coords['id'] = allowed[i];
+  cities.forEach(async (city, index, array) => {
+    const coords = addMarker(city, index, array);
     coordinates.push(coords);
-    L.marker([coords.latitude, coords.longitude]).addTo(map);
-    console.log(coordinates);
   });
 
-  array.forEach(async (e) => {
-    const url = renderOnsUrl(e);
+  factors.forEach(async (factor) => {
+    const url = renderOnsUrl(factor);
     console.log(url);
     const data = await fetchOnsData(url);
     const { observations } = data;
     let wellbeing = observations.map(({ observation }) => observation);
     let geography = observations.map((a) => a.dimensions['Geography'].label);
-    var result = {};
+    let result = {};
     geography.forEach((key, i) => (result[key] = wellbeing[i]));
     const filtered = Object.keys(result)
-      .filter((key) => allowed.includes(key))
+      .filter((key) => cities.includes(key))
       .reduce((obj, key) => {
         obj[key] = result[key];
         return obj;
       }, {});
-    storedArray.push(filtered);
+    factorsFiltered.push(filtered);
     // Object created
-    var obj = {};
+    let obj = {};
 
     // Using loop to insert key to value in object
-    for (var i = 0; i < array.length; i++) {
-      obj[array[i]] = storedArray[i];
+    for (let i = 0; i < factors.length; i++) {
+      obj[factors[i]] = factorsFiltered[i];
     }
-    console.log(storedArray);
+    console.log('filtered', factorsFiltered);
     console.log(obj);
     localStorage.setItem('ons', JSON.stringify(obj));
   });
@@ -122,3 +118,13 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // let cityCoordinates =[{id: Manchester, lon: ,lat:}]
+
+async function addMarker(city, index, array) {
+  const url = renderGeocodeUrl(city);
+  const coords = await getCoordinates(url);
+  coords['id'] = array[index];
+  L.marker([coords.latitude, coords.longitude]).addTo(map);
+  return coords;
+}
+
+function addPopup(city) {}
