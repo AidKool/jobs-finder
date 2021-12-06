@@ -20,27 +20,21 @@
     <title>Favourite Jobs</title>
   </head>
   <body>
-    <nav class="navbar has-shadow">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <!-- <img src="images/logo.png" /> -->
-        </a>
-        <div class="navbar-burger burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>Job searching made easy</small>
+    <nav class="navbar has-shadow is-dark">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <small class="is-size-4">Job searching made easy</small>
+          </a>
+          <div class="navbar-burger burger">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
     </nav>
-    <section class="section">
+    <main class="section">
       <div class="columns is-justify-content-center">
         <div
           class="column is-12-mobile is-10-tablet is-9-desktop is-7-fullhd jobs"
@@ -53,7 +47,12 @@
         </div>
       </div>
       <div class="modal jobs-modal"></div>
-    </section>
+    </main>
+    <footer class="footer py-5 has-background-dark">
+      <div class="content has-text-centered">
+        <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
+      </div>
+    </footer>
     <script type="module" src="./js/favourites.js"></script>
   </body>
 </html>

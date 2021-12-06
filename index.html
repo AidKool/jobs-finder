@@ -10,12 +10,6 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script
-      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-      crossorigin=""
-    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -29,251 +23,203 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <title>Jobs Finder</title>
+    <title>Jobs Finder - Find your next job</title>
   </head>
 
   <body>
-    <nav class="navbar has-shadow column">
-      <div class="navbar-brand">
-        <a class="navbar-item">
-          <!-- <img src="images/logo.png" /> -->
-        </a>
-        <div class="navbar-burger burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <div class="navbar-item">
-            <small>Job searching made easy</small>
+    <nav class="navbar has-shadow is-dark">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <small class="is-size-4">Job searching made easy</small>
+          </a>
+          <div class="navbar-burger burger">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
       </div>
     </nav>
 
-    <section class="section">
-      <div class="columns is-desktop">
-        <div class="column is-4-desktop is-2-widescreen">
-          <!--This is where the form elements will go in-->
-          <div class="form-container">
-            <form>
-              <div class="what field">
-                <label class="label">What</label>
-                <p class="control">
-                  <input
-                    class="what input"
-                    type="text"
-                    placeholder="e.g. Full Stack Developer"
-                  />
-                </p>
-              </div>
-              <div class="where field">
-                <label class="label">Where</label>
-                <p class="control">
-                  <input
-                    class="where input"
-                    type="text"
-                    placeholder="e.g. Manchester"
-                  />
-                </p>
-              </div>
-              <div class="field center-column top">
-                <label class="label">Distance</label>
-                <div class="select is-fullwidth">
-                  <select class="distance">
-                    <option value="0">0 miles</option>
-                    <option value="1">1 mile</option>
-                    <option value="3">3 miles</option>
-                    <option value="5">5 miles</option>
-                    <option value="10">10 miles</option>
-                    <option value="15">15 miles</option>
-                    <option value="20">20 miles</option>
-                    <option value="20">30 miles</option>
-                    <option value="20">50 miles</option>
-                  </select>
+    <main class="section">
+      <div class="container">
+        <div class="columns is-desktop">
+          <div class="column is-4-desktop is-3-widescreen">
+            <div class="form-container">
+              <form>
+                <div class="what field">
+                  <label class="label">What</label>
+                  <p class="control">
+                    <input
+                      class="what input"
+                      type="text"
+                      placeholder="e.g. Full Stack Developer"
+                    />
+                  </p>
                 </div>
-              </div>
-              <div class="field center-column top">
-                <label class="label">From: </label>
-                <div class="select is-fullwidth">
-                  <select class="starting-salary">
-                    <option value="0">£ Any</option>
-                    <option value="10000">Up to £10,000</option>
-                    <option value="15000">£15,000</option>
-                    <option value="20000">£20,000</option>
-                    <option value="25000">£25,000</option>
-                    <option value="30000">£30,000</option>
-                    <option value="35000">£35,000</option>
-                    <option value="40000">£40,000</option>
-                    <option value="45000">£45,000</option>
-                    <option value="50000">£50,000</option>
-                    <option value="55000">£55,000</option>
-                    <option value="60000">£60,000</option>
-                    <option value="65000">£65,000</option>
-                    <option value="70000">£70,000</option>
-                    <option value="75000">£75,000</option>
-                    <option value="80000">£80,000</option>
-                    <option value="85000">£85,000</option>
-                    <option value="90000">£90,000</option>
-                    <option value="95000">£95,000</option>
-                    <option value="100000">£100,000+</option>
-                  </select>
+                <div class="where field">
+                  <label class="label">Where</label>
+                  <p class="control">
+                    <input
+                      class="where input"
+                      type="text"
+                      placeholder="e.g. Manchester"
+                    />
+                  </p>
                 </div>
-              </div>
-              <div class="field center-column top">
-                <label class="label">To: </label>
-                <div class="select is-fullwidth">
-                  <select class="ending-salary">
-                    <option value="100000">£ Any</option>
-                    <option value="10000">Up to £10,000</option>
-                    <option value="15000">£15,000</option>
-                    <option value="20000">£20,000</option>
-                    <option value="25000">£25,000</option>
-                    <option value="30000">£30,000</option>
-                    <option value="35000">£35,000</option>
-                    <option value="40000">£40,000</option>
-                    <option value="45000">£45,000</option>
-                    <option value="50000">£50,000</option>
-                    <option value="55000">£55,000</option>
-                    <option value="60000">£60,000</option>
-                    <option value="65000">£65,000</option>
-                    <option value="70000">£70,000</option>
-                    <option value="75000">£75,000</option>
-                    <option value="80000">£80,000</option>
-                    <option value="85000">£85,000</option>
-                    <option value="90000">£90,000</option>
-                    <option value="95000">£95,000</option>
-                    <option value="100000">£100,000+</option>
-                  </select>
+                <div class="field center-column start">
+                  <label class="label">Distance</label>
+                  <div class="select is-fullwidth">
+                    <select class="distance">
+                      <option value="0">0 miles</option>
+                      <option value="1">1 mile</option>
+                      <option value="3">3 miles</option>
+                      <option value="5">5 miles</option>
+                      <option value="10">10 miles</option>
+                      <option value="15">15 miles</option>
+                      <option value="20">20 miles</option>
+                      <option value="20">30 miles</option>
+                      <option value="20">50 miles</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Job Type</label>
-                <div class="center-column top">
-                  <label class="checkbox">
-                    <input type="checkbox" name="permanent" />
-                    Permanent
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox" name="temp" />
-                    Temporary
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox" name="contract" />
-                    Contract
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox" name="fullTime" />
-                    Full-time
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox" name="partTime" />
-                    Part-time
-                  </label>
+                <div class="field center-column start">
+                  <label class="label">From: </label>
+                  <div class="select is-fullwidth">
+                    <select class="starting-salary">
+                      <option value="0">£ Any</option>
+                      <option value="10000">Up to £10,000</option>
+                      <option value="15000">£15,000</option>
+                      <option value="20000">£20,000</option>
+                      <option value="25000">£25,000</option>
+                      <option value="30000">£30,000</option>
+                      <option value="35000">£35,000</option>
+                      <option value="40000">£40,000</option>
+                      <option value="45000">£45,000</option>
+                      <option value="50000">£50,000</option>
+                      <option value="55000">£55,000</option>
+                      <option value="60000">£60,000</option>
+                      <option value="65000">£65,000</option>
+                      <option value="70000">£70,000</option>
+                      <option value="75000">£75,000</option>
+                      <option value="80000">£80,000</option>
+                      <option value="85000">£85,000</option>
+                      <option value="90000">£90,000</option>
+                      <option value="95000">£95,000</option>
+                      <option value="100000">£100,000+</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="field">
-                <label class="label">Posted by</label>
-                <div class="center-column top">
-                  <label class="checkbox">
-                    <input type="checkbox" name="postedByRecruitmentAgency" />
-                    Agency
-                  </label>
-                  <label class="checkbox">
-                    <input type="checkbox" name="postedByDirectEmployer" />
-                    Employer
-                  </label>
+                <div class="field center-column start">
+                  <label class="label">To: </label>
+                  <div class="select is-fullwidth">
+                    <select class="ending-salary">
+                      <option value="100000">£ Any</option>
+                      <option value="10000">Up to £10,000</option>
+                      <option value="15000">£15,000</option>
+                      <option value="20000">£20,000</option>
+                      <option value="25000">£25,000</option>
+                      <option value="30000">£30,000</option>
+                      <option value="35000">£35,000</option>
+                      <option value="40000">£40,000</option>
+                      <option value="45000">£45,000</option>
+                      <option value="50000">£50,000</option>
+                      <option value="55000">£55,000</option>
+                      <option value="60000">£60,000</option>
+                      <option value="65000">£65,000</option>
+                      <option value="70000">£70,000</option>
+                      <option value="75000">£75,000</option>
+                      <option value="80000">£80,000</option>
+                      <option value="85000">£85,000</option>
+                      <option value="90000">£90,000</option>
+                      <option value="95000">£95,000</option>
+                      <option value="100000">£100,000+</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="field">
-                <div class="buttons">
-                  <button
-                    type="submit"
-                    class="submit button is-success is-fullwidth"
-                  >
-                    Submit
-                  </button>
-                  <button class="button is-info is-fullwidth favourites">
-                    <span class="icon is-small mr-2">
-                      <i class="fas fa-heart ml-2"></i>
-                    </span>
-                    Favourites
-                  </button>
+                <div class="field">
+                  <label class="label">Job Type</label>
+                  <div class="center-column start">
+                    <label class="checkbox">
+                      <input type="checkbox" name="permanent" />
+                      Permanent
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" name="temp" />
+                      Temporary
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" name="contract" />
+                      Contract
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" name="fullTime" />
+                      Full-time
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" name="partTime" />
+                      Part-time
+                    </label>
+                  </div>
                 </div>
-              </div>
-            </form>
+                <div class="field">
+                  <label class="label">Posted by</label>
+                  <div class="center-column start">
+                    <label class="checkbox">
+                      <input type="checkbox" name="postedByRecruitmentAgency" />
+                      Agency
+                    </label>
+                    <label class="checkbox">
+                      <input type="checkbox" name="postedByDirectEmployer" />
+                      Employer
+                    </label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="buttons">
+                    <button
+                      type="submit"
+                      class="submit button is-success is-fullwidth"
+                    >
+                      Submit
+                    </button>
+                    <button class="button is-info is-fullwidth favourites">
+                      <span class="icon is-small mr-2">
+                        <i class="fas fa-heart ml-2"></i>
+                      </span>
+                      Favourites
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
 
-        <div class="column is-8-desktop is-10-widescreen">
-          <section id="map" class="map"></section>
-          <section class="jobs">
-            <p class="number-jobs my-3"></p>
-            <ul></ul>
-          </section>
-          <nav class="pagination is-centered">
-            <!-- <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-              <li>
-                <a class="pagination-link is-current">1</a>
-              </li>
-              <li>
-                <a class="pagination-link">2</a>
-              </li>
-              <li>
-                <a class="pagination-link">3</a>
-              </li>
-              <li>
-                <a class="pagination-link">4</a>
-              </li>
-              <li>
-                <span class="pagination-ellipsis">&hellip;</span>
-              </li>
-              <li>
-                <a class="pagination-link">50</a>
-              </li>
-            </ul> -->
-          </nav>
-        </div>
-        <div class="modal jobs-modal">
-          <!-- <div class="modal-background"></div>
-          <div class="modal-content has-background-white py-5 px-5">
-            <h3 class="title mb-2">Job title</h3>
-            <div class="company-container is-flex is-align-items-center mb-2">
-              <i class="fas fa-building"></i>
-              <p class="ml-2">Company</p>
-            </div>
-            <div class="location-container is-flex is-align-items-center mb-2">
-              <i class="fas fa-map-marker-alt"></i>
-              <p class="ml-2">Location</p>
-            </div>
-            <div class="salary-container is-flex is-align-items-center mb-2">
-              <i class="fas fa-pound-sign"></i>
-              <p class="ml-2">£min-salary - £max-salary</p>
-            </div>
-            <p class="job-description mb-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse magnam labore temporibus! Quasi adipisci
-              totam, eos ratione dolorem consequatur. Odio.
-            </p>
-            <div class="expiration-container is-flex is-align-items-center mb-2">
-              <i class="fas fa-calendar-day"></i>
-              <p class="ml-2">Expires in...</p>
-            </div>
-          </div> -->
+          <div class="column is-8-desktop is-9-widescreen">
+            <section id="map" class="map"></section>
+            <section class="jobs">
+              <p class="number-jobs my-3"></p>
+              <ul></ul>
+            </section>
+            <nav class="pagination is-centered"></nav>
+          </div>
+          <div class="modal jobs-modal"></div>
         </div>
       </div>
-    </section>
-    <footer class="footer py-5">
+    </main>
+    <footer class="footer py-5 has-background-dark">
       <div class="content has-text-centered">
-        <p>&copy; 2021 All Rights Reserverd</p>
+        <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
       </div>
     </footer>
+    <!-- leaflet -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
     <!-- javascript -->
     <script type="module" src="./js/app.js"></script>
-    <script type="module" src="./js/utils/geocode.js"></script>
   </body>
 </html>
