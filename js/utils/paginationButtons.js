@@ -32,12 +32,17 @@ export function renderPaginationButtons(totalPages, currentPage) {
   <a class="pagination-previous" data-page="prev">Prev</a>
   <ul class="pagination-list">
   ${pages
-    .map((item) => {
-      return `
-      <li>
-        <a class="pagination-link" data-page="${item}">${item}</a>
-      </li> 
-      `;
+    .map((item, index, array) => {
+      let newItem = `<li>
+                <a class="pagination-link" data-page="${item}">${item}</a>
+              </li>`;
+      if (array[index + 1] && item + 1 !== array[index + 1]) {
+        console.log('item+1:', item + 1);
+        newItem += `<li>
+                      <span class="pagination-ellipsis">&hellip;</span>
+                    </li>`;
+      }
+      return newItem;
     })
     .join('')}
     </ul>  
