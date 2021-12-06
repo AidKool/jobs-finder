@@ -1,9 +1,16 @@
-.center,
+/********** 
+GLOBAL
+**********/
+body {
+  min-height: 100vh;
+}
+
+main {
+  min-height: calc(100vh - 52px - 72px);
+}
+
 .center-column,
-.top,
-.right,
-.bottom,
-.left {
+.start {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +20,7 @@
   flex-direction: column;
 }
 
-.top {
+.start {
   align-items: flex-start;
 }
 .right {
@@ -41,8 +48,11 @@
   }
 }
 
+/********** 
+MAP
+**********/
 .map {
-  /* position: absolute; */
+  z-index: 0;
   top: 0;
   bottom: 0;
   left: 0;
@@ -53,7 +63,6 @@
 /********** 
 JOBS LIST
 **********/
-
 .jobs h3.title:hover {
   cursor: pointer;
   color: hsl(229, 86%, 56%);
@@ -68,8 +77,15 @@ JOBS MODAL
 }
 
 /********** 
-MAP
+FORM
 **********/
-#map {
-  z-index: 0;
+.form-container {
+  height: 0;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+  .form-container {
+    height: auto !important;
+  }
 }

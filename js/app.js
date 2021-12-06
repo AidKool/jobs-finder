@@ -6,13 +6,16 @@ import {
 import { initialisePaginationButtons } from './utils/paginationButtons.js';
 import './utils/pagination.js';
 import { renderUrl } from './utils/renderUrl.js';
-import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
+import { map, tileLayer } from './utils/leaflet.js';
 import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
 import { getCoordinates } from './utils/geocode.js';
 import './utils/getIndividualJobData.js';
 import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
+import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
+import './utils/toggleForm.js';
+import { formContainer, setHeight } from './utils/toggleForm.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 const contactBtn = document.querySelector('.contactBtn');
@@ -69,43 +72,71 @@ form.addEventListener('submit', async function (event) {
   // Gets and displays job data
   const jobsData = await getAndDisplayJobsData(url);
   initialisePaginationButtons(jobsData);
-  const coords = await getCoordinates(locationElement.value);
-  console.log(coords);
+  setHeight(formContainer, 0);
 });
 
 favouritesBtn.addEventListener('click', function () {
   window.location.replace('/favourites.html');
 });
 
-window.addEventListener('DOMContentLoaded', async (event) => {
-  let array = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-  let allowed = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
-  let storedArray = [];
+window.addEventListener('DOMContentLoaded', () => {
+  let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
+  let cities = [
+    'Manchester',
+    'London',
+    'Birmingham',
+    'Liverpool',
+    'Southampton',
+    'Leeds',
+    'Cardiff',
+    'Glasgow City',
+    'City of Edinburgh',
+    'Nottingham',
+    'Belfast',
+    'Norwich',
+    'Brighton and Hove',
+    'Aberdeen City',
+    'Blackpool',
+    'Lancaster',
+    'Stoke-on-Trent',
+    'Oxford',
+    'Cambridge',
+    'York',
+    'Luton',
+    'Dover',
+  ];
+  let factorsFiltered = [];
+  let coordinates = [];
 
-  array.forEach(async (e) => {
-    const url = renderOnsUrl(e);
+  cities.forEach(async (city, index, array) => {
+    const coords = addMarker(city, index, array);
+    coordinates.push(coords);
+  });
+
+  factors.forEach(async (factor) => {
+    const url = renderOnsUrl(factor);
     console.log(url);
     const data = await fetchOnsData(url);
     const { observations } = data;
     let wellbeing = observations.map(({ observation }) => observation);
     let geography = observations.map((a) => a.dimensions['Geography'].label);
-    var result = {};
+    let result = {};
     geography.forEach((key, i) => (result[key] = wellbeing[i]));
     const filtered = Object.keys(result)
-      .filter((key) => allowed.includes(key))
+      .filter((key) => cities.includes(key))
       .reduce((obj, key) => {
         obj[key] = result[key];
         return obj;
       }, {});
-    storedArray.push(filtered);
+    factorsFiltered.push(filtered);
     // Object created
-    var obj = {};
+    let obj = {};
 
     // Using loop to insert key to value in object
-    for (var i = 0; i < array.length; i++) {
-      obj[array[i]] = storedArray[i];
+    for (let i = 0; i < factors.length; i++) {
+      obj[factors[i]] = factorsFiltered[i];
     }
-    console.log(storedArray);
+    console.log('filtered', factorsFiltered);
     console.log(obj);
     localStorage.setItem('ons', JSON.stringify(obj));
   });
@@ -116,3 +147,21 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 contactBtn.addEventListener('click', function () {
   window.location.replace('/contact.html');
 });
+async function addMarker(city, index, array) {
+  const url = renderGeocodeUrl(city);
+  const coords = await getCoordinates(url);
+  coords['id'] = array[index];
+  var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
+  let storedOns = JSON.parse(localStorage.getItem('ons'));
+  marker.bindPopup(`<b> ${city}: </b> 
+  <br>
+  <b> Happiness:</b> ${storedOns['happiness'][city]}
+  <br>
+  <b> Worthwhile: </b> ${storedOns['worthwhile'][city]}
+  <br>
+  <b> Life-satisfaction: </b> ${storedOns['life-satisfaction'][city]}
+  <br>
+  <b> Anxiety: </b> ${storedOns['anxiety'][city]}
+  <br>`).openPopup;
+  return coords;
+}
