@@ -77,7 +77,30 @@ favouritesBtn.addEventListener('click', function () {
 
 window.addEventListener('DOMContentLoaded', () => {
   let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-  let cities = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
+  let cities = [
+    'Manchester',
+    'London',
+    'Birmingham',
+    'Liverpool',
+    'Southampton',
+    'Leeds',
+    'Cardiff',
+    'Glasgow City',
+    'City of Edinburgh',
+    'Nottingham',
+    'Belfast',
+    'Norwich',
+    'Brighton and Hove',
+    'Aberdeen City',
+    'Blackpool',
+    'Lancaster',
+    'Stoke-on-Trent',
+    'Oxford',
+    'Cambridge',
+    'York',
+    'Luton',
+    'Dover',
+  ];
   let factorsFiltered = [];
   let coordinates = [];
 
@@ -117,14 +140,27 @@ window.addEventListener('DOMContentLoaded', () => {
   console.log('DOM fully loaded and parsed');
 });
 
-// let cityCoordinates =[{id: Manchester, lon: ,lat:}]
-
 async function addMarker(city, index, array) {
   const url = renderGeocodeUrl(city);
   const coords = await getCoordinates(url);
   coords['id'] = array[index];
-  L.marker([coords.latitude, coords.longitude]).addTo(map);
+  // var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
+  var marker = L.circle([coords.latitude, coords.longitude], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 10000,
+  }).addTo(map);
+  let storedOns = JSON.parse(localStorage.getItem('ons'));
+  marker.bindPopup(`<b> ${city}: </b> 
+  <br>
+  <b> Happiness:</b> ${storedOns['happiness'][city]}
+  <br>
+  <b> Worthwhile: </b> ${storedOns['worthwhile'][city]}
+  <br>
+  <b> Life-satisfaction: </b> ${storedOns['life-satisfaction'][city]}
+  <br>
+  <b> Anxiety: </b> ${storedOns['anxiety'][city]}
+  <br>`).openPopup;
   return coords;
 }
-
-function addPopup(city) {}
