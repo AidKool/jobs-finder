@@ -152,8 +152,6 @@ async function addMarker(city, index, array) {
     const coords = await getCoordinates(url);
     coords['id'] = array[index];
     var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-    console.log(url);
-    console.log(coords);
     let storedOns = JSON.parse(localStorage.getItem('ons'));
     marker.bindPopup(`<b> ${city}: </b> 
   <br>
