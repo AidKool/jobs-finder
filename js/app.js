@@ -13,6 +13,7 @@ import { getCoordinates } from './utils/geocode.js';
 import './utils/getIndividualJobData.js';
 import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
+import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 
@@ -68,18 +69,25 @@ form.addEventListener('submit', async function (event) {
   // Gets and displays job data
   const jobsData = await getAndDisplayJobsData(url);
   initialisePaginationButtons(jobsData);
-  const coords = await getCoordinates(locationElement.value);
-  console.log(coords);
 });
 
 favouritesBtn.addEventListener('click', function () {
   window.location.replace('/favourites.html');
 });
 
-window.addEventListener('DOMContentLoaded', async (event) => {
+window.addEventListener('DOMContentLoaded', () => {
   let array = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
   let allowed = ['Manchester', 'London', 'Birmingham', 'Liverpool'];
   let storedArray = [];
+  let coordinates = [];
+
+  allowed.forEach(async (e, i) => {
+    const url = renderGeocodeUrl(e);
+    let coords = await getCoordinates(url);
+    coords['id'] = allowed[i];
+    coordinates.push(coords);
+    console.log(coordinates);
+  });
 
   array.forEach(async (e) => {
     const url = renderOnsUrl(e);
@@ -111,3 +119,5 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
   console.log('DOM fully loaded and parsed');
 });
+
+// let cityCoordinates =[{id: Manchester, lon: ,lat:}]
