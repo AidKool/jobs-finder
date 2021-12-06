@@ -6,7 +6,7 @@ import {
 import { initialisePaginationButtons } from './utils/paginationButtons.js';
 import './utils/pagination.js';
 import { renderUrl } from './utils/renderUrl.js';
-import { map, tileLayer, marker_man, marker_ldn } from './utils/leaflet.js';
+import { map, tileLayer } from './utils/leaflet.js';
 import './utils/renderJobsSearchData.js';
 import { getAndDisplayJobsData } from './utils/renderJobsSearchData.js';
 import { getCoordinates } from './utils/geocode.js';
@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let coords = await getCoordinates(url);
     coords['id'] = allowed[i];
     coordinates.push(coords);
+    L.marker([coords.latitude, coords.longitude]).addTo(map);
     console.log(coordinates);
   });
 
