@@ -7,8 +7,12 @@ toggleBtn.addEventListener('click', function () {
   const formHeight = form.getBoundingClientRect().height;
 
   if (containerHeight === 0) {
-    formContainer.style.height = `${formHeight}px`;
+    setHeight(formContainer, formHeight);
   } else {
-    formContainer.style.height = 0;
+    setHeight(formContainer, 0);
   }
 });
+
+export function setHeight(element, height) {
+  element.style.height = `${height}px`;
+}
