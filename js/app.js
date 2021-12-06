@@ -15,6 +15,7 @@ import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
 
 const favouritesBtn = document.querySelector('.favourites');
+const contactBtn = document.querySelector('.contactBtn');
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
@@ -110,4 +111,8 @@ window.addEventListener('DOMContentLoaded', async (event) => {
   });
 
   console.log('DOM fully loaded and parsed');
+});
+
+contactBtn.addEventListener('click', function () {
+  window.location.replace('/contact.html');
 });
