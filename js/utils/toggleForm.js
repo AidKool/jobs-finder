@@ -1,6 +1,6 @@
 const toggleBtn = document.querySelector('.burger');
-const formContainer = document.querySelector('.form-container');
-const form = document.querySelector('form');
+export const formContainer = document.querySelector('.form-container');
+export const form = document.querySelector('form');
 
 toggleBtn.addEventListener('click', function () {
   const containerHeight = formContainer.getBoundingClientRect().height;
