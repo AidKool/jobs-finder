@@ -18,6 +18,7 @@ import './utils/toggleForm.js';
 import { formContainer, setHeight } from './utils/toggleForm.js';
 
 const favouritesBtn = document.querySelector('.favourites');
+const contactBtn = document.querySelector('.contactBtn');
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
@@ -142,6 +143,9 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+contactBtn.addEventListener('click', function () {
+  window.location.replace('/contact.html');
+});
 async function addMarker(city, index, array) {
   try {
     const url = renderGeocodeUrl(city);
