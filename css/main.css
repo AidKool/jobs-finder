@@ -23,6 +23,30 @@ main {
 .start {
   align-items: flex-start;
 }
+.right {
+  justify-content: flex-end;
+}
+.bottom {
+  align-items: flex-end;
+}
+.left {
+  justify-content: flex-start;
+}
+
+.single-spaced,
+.single-spaced * {
+  line-height: 1;
+}
+
+.contactBtn {
+  color: black;
+}
+
+@media (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+}
 
 /********** 
 MAP
