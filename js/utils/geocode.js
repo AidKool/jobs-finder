@@ -1,9 +1,6 @@
-export async function getCoordinates(city) {
-  const url = `https://geocode.xyz/${city}?json=1`;
+export async function getCoordinates(url) {
   const response = await fetch(url);
   const data = await response.json();
-  return {
-    lon: data.longt,
-    lat: data.latt,
-  };
+  const { locations } = data;
+  return locations[0].referencePosition;
 }
