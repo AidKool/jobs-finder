@@ -14,6 +14,8 @@ import './utils/getIndividualJobData.js';
 import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
 import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
+import './utils/toggleForm.js';
+import { formContainer, setHeight } from './utils/toggleForm.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 
@@ -69,6 +71,7 @@ form.addEventListener('submit', async function (event) {
   // Gets and displays job data
   const jobsData = await getAndDisplayJobsData(url);
   initialisePaginationButtons(jobsData);
+  setHeight(formContainer, 0);
 });
 
 favouritesBtn.addEventListener('click', function () {
