@@ -3,12 +3,14 @@ const paginationContainer = document.querySelector('.pagination');
 function calculatePages(totalPages, currentPage) {
   let pages = [];
 
-  if (currentPage > 1) {
-    pages.push(1);
+  for (let i = currentPage - 2; i < totalPages && pages.length < 5; i++) {
+    if (i > 0) {
+      pages.push(i);
+    }
   }
 
-  for (let i = currentPage; i < totalPages && pages.length < 4; i++) {
-    pages.push(i);
+  if (pages[0] !== 1) {
+    pages.unshift(1);
   }
 
   if (pages[pages.length - 1] !== totalPages) {
