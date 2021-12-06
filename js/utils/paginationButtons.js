@@ -48,6 +48,9 @@ export function renderPaginationButtons(totalPages, currentPage) {
     <a class="pagination-next" data-page="next">Next</a>
 `;
   showActivePage(currentPage);
+  if (isLast(totalPages, currentPage)) {
+    removeNextfromLastPage();
+  }
 }
 
 function showActivePage(currentPage) {
@@ -58,4 +61,13 @@ function showActivePage(currentPage) {
       button.classList.add('is-current');
     }
   });
+}
+
+function removeNextfromLastPage() {
+  const btnNext = document.querySelector('.pagination-next');
+  btnNext.classList.add('is-hidden');
+}
+
+function isLast(totalPages, currentPage) {
+  return totalPages === currentPage;
 }
