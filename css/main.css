@@ -97,6 +97,10 @@ FORM
   }
 }
 
+/********** 
+HEARTBEAT
+**********/
+
 .fa-heart:hover {
   position: relative;
   animation: heartbeat 1.4s linear infinite;
@@ -122,6 +126,10 @@ FORM
     transform: scale(1);
   }
 }
+
+/********** 
+SOCIAL MEDIA
+**********/
 
 .footer container {
   display: flex;
