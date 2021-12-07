@@ -83,7 +83,13 @@ favouritesBtn.addEventListener('click', function () {
 window.addEventListener('DOMContentLoaded', async () => {
   let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
 
-  const storedOns = await getONS(factors);
+  const storedOns = await Promise.all([
+    getONS(factors[0]),
+    getONS(factors[1]),
+    getONS(factors[2]),
+    getONS(factors[3]),
+  ]);
+
   console.log(storedOns);
 
   cities.forEach(async (city, index) => {
