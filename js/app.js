@@ -16,6 +16,7 @@ import { fetchOnsData } from './utils/fetchOnsData.js';
 import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
 import './utils/toggleForm.js';
 import { formContainer, setHeight } from './utils/toggleForm.js';
+import { getONS, cities } from './utils/getONS.js';
 
 const favouritesBtn = document.querySelector('.favourites');
 const contactBtn = document.querySelector('.contactBtn');
@@ -79,95 +80,38 @@ favouritesBtn.addEventListener('click', function () {
   window.location.replace('/favourites.html');
 });
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-  let cities = [
-    'Manchester',
-    'London',
-    'Birmingham',
-    'Liverpool',
-    'Southampton',
-    'Leeds',
-    'Cardiff',
-    'Glasgow City',
-    'City of Edinburgh',
-    'Nottingham',
-    'Belfast',
-    'Norwich',
-    'Brighton and Hove',
-    'Aberdeen City',
-    'Blackpool',
-    'Lancaster',
-    'Stoke-on-Trent',
-    'Oxford',
-    'Cambridge',
-    'York',
-    'Luton',
-    'Dover',
-  ];
-  let factorsFiltered = [];
-  let coordinates = [];
 
-  cities.forEach(async (city, index, array) => {
-    const coords = addMarker(city, index, array);
-    coordinates.push(coords);
+  const storedOns = await getONS(factors);
+  console.log(storedOns);
+
+  cities.forEach(async (city, index) => {
+    const marker = await addMarker(city, index);
+    marker.bindPopup(`<b> ${city}: </b> 
+  <br>
+  <b> Happiness:</b> ${storedOns[0][city]}
+  <br>
+  <b> Worthwhile: </b> ${storedOns[1][city]}
+  <br>
+  <b> Life-satisfaction: </b> ${storedOns[2][city]}
+  <br>
+  <b> Anxiety: </b> ${storedOns[3][city]}
+  <br>`).openPopup;
   });
-
-  if (!localStorage.getItem('ons')) {
-    factors.forEach(async (factor) => {
-      try {
-        const url = renderOnsUrl(factor);
-        const data = await fetchOnsData(url);
-        const { observations } = data;
-        let wellbeing = observations.map(({ observation }) => observation);
-        let geography = observations.map(
-          (a) => a.dimensions['Geography'].label
-        );
-        let result = {};
-        geography.forEach((key, i) => (result[key] = wellbeing[i]));
-        const filtered = Object.keys(result)
-          .filter((key) => cities.includes(key))
-          .reduce((obj, key) => {
-            obj[key] = result[key];
-            return obj;
-          }, {});
-        factorsFiltered.push(filtered);
-        // Object created
-        let obj = {};
-
-        // Using loop to insert key to value in object
-        for (let i = 0; i < factors.length; i++) {
-          obj[factors[i]] = factorsFiltered[i];
-        }
-        localStorage.setItem('ons', JSON.stringify(obj));
-      } catch (error) {
-        console.log(error);
-      }
-    });
-  }
 });
 
-contactBtn.addEventListener('click', function () {
-  window.location.replace('/contact.html');
-});
-async function addMarker(city, index, array) {
+// contactBtn.addEventListener('click', function () {
+//   window.location.replace('/contact.html');
+// });
+async function addMarker(city, index) {
   try {
     const url = renderGeocodeUrl(city);
     const coords = await getCoordinates(url);
-    coords['id'] = array[index];
+    // coords['id'] = array[index];
     var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-    let storedOns = JSON.parse(localStorage.getItem('ons'));
-    marker.bindPopup(`<b> ${city}: </b> 
-  <br>
-  <b> Happiness:</b> ${storedOns['happiness'][city]}
-  <br>
-  <b> Worthwhile: </b> ${storedOns['worthwhile'][city]}
-  <br>
-  <b> Life-satisfaction: </b> ${storedOns['life-satisfaction'][city]}
-  <br>
-  <b> Anxiety: </b> ${storedOns['anxiety'][city]}
-  <br>`).openPopup;
-    return coords;
+    // let storedOns = JSON.parse(localStorage.getItem('ons'));
+    return marker;
   } catch (error) {
     console.log(error);
   }
