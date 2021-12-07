@@ -94,6 +94,7 @@ FORM
   }
 }
 
+.button:hover .fa-heart,
 button:hover .fa-heart {
   position: relative;
   animation: heartbeat 1.4s linear infinite;
