@@ -182,3 +182,13 @@ SOCIAL MEDIA
     top: -10%;
   }
 }
+
+/********** 
+FAVOURITES
+**********/
+
+.no-favourites {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
