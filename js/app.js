@@ -18,8 +18,6 @@ import './utils/toggleForm.js';
 import { formContainer, setHeight } from './utils/toggleForm.js';
 import { getONS, cities } from './utils/getONS.js';
 
-const favouritesBtn = document.querySelector('.favourites');
-
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
 const locationElement = document.querySelector('input.where');
@@ -73,10 +71,6 @@ form.addEventListener('submit', async function (event) {
   } catch (error) {
     console.log(error);
   }
-});
-
-favouritesBtn.addEventListener('click', function () {
-  window.location.replace('/favourites.html');
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
