@@ -1,4 +1,5 @@
 import { fetchJobs } from './jobsSearch.js';
+import { removeTags } from './removeTags.js';
 
 const jobList = document.querySelector('.jobs > ul');
 const numberJobs = document.querySelector('.number-jobs');
@@ -37,7 +38,7 @@ export const renderJobsSearchData = (jobs) => {
                   <i class="fas fa-pound-sign"></i>
                   <p class="ml-2">${job.salaryRange}</p>
                   </div>
-                  <p>${job.description}</p>
+                  <p>${removeTags(job.description)}</p>
                   <button class="button favourite" data-order="${index}">Favourite<i class="far fa-heart ml-2"></i></button>
                 </article>
               </li>`;
