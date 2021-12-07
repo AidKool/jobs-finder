@@ -192,3 +192,11 @@ FAVOURITES
   max-width: 600px;
   height: auto;
 }
+
+/********** 
+ATTRIBUTION
+**********/
+
+.attribution {
+  font-size: 0.5rem;
+}
