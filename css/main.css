@@ -85,6 +85,7 @@ FORM
 .form-container {
   height: 0;
   overflow: hidden;
+  transition: height 350ms ease-in-out;
 }
 
 @media screen and (min-width: 1024px) {
