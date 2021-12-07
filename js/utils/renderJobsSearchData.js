@@ -2,20 +2,23 @@ import { fetchJobs } from './jobsSearch.js';
 
 const jobList = document.querySelector('.jobs > ul');
 const numberJobs = document.querySelector('.number-jobs');
-const favourites = document.querySelectorAll('.favourite');
+
 export function renderNumberJobs({ totalResults }) {
   numberJobs.innerHTML = `${totalResults} matching jobs found`;
 }
 
 export async function getAndDisplayJobsData(url) {
-  const jobsData = await fetchJobs(url);
-  renderNumberJobs(jobsData);
-  renderJobsSearchData(jobsData.jobs);
-  return jobsData;
+  try {
+    const jobsData = await fetchJobs(url);
+    renderNumberJobs(jobsData);
+    renderJobsSearchData(jobsData.jobs);
+    return jobsData;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export const renderJobsSearchData = (jobs) => {
-  console.log(jobs);
   localStorage.setItem('jobs', JSON.stringify(jobs));
   const jobString = jobs
     .map((job, index) => {
@@ -58,7 +61,7 @@ function favouritesHandler() {
   const favourites = document.querySelectorAll('.favourite');
   favourites.forEach((item) => {
     item.addEventListener('click', (event) => {
-      var element = event.target;
+      const element = event.currentTarget;
       const rank = element.getAttribute('data-order');
       let storedJobs = JSON.parse(localStorage.getItem('jobs'));
       let favouriteJobs = JSON.parse(localStorage.getItem('favourites')) || [];

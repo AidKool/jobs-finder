@@ -38,41 +38,41 @@ checkboxes.forEach(function (checkbox) {
     checkedCriteria = [...checkboxes]
       .filter((i) => i.checked) // Use Array.filter to remove unchecked checkboxes.
       .map((i) => i.attributes[1].nodeValue); // Use Array.map to extract only the checkbox names from the array of objects.
-
-    // console.log(checkedCriteria);
   });
 });
 
 form.addEventListener('submit', async function (event) {
-  event.preventDefault();
-  let locationName = locationElement.value;
-  let keywords = keywordsElement.value;
-  let distance = distanceElement.value;
-  let minimumSalary = salaryFromElement.value;
-  let maximumSalary = salaryToElement.value;
-  let checkedUrl = checkedCriteria
-    .map((k) => {
-      return `&${k}=true`;
-    })
-    .join('');
-  // Below function will render the url
-  let url = renderUrl(
-    keywords,
-    distance,
-    minimumSalary,
-    maximumSalary,
-    locationName,
-    checkedUrl
-  );
-  // save url to local storage
-  localStorage.setItem('url', url);
-  localStorage.setItem('currentPage', 1);
-  //invoke getAndDisplayJobsData with the new url inside the pagination button event listener
-  console.log(url);
-  // Gets and displays job data
-  const jobsData = await getAndDisplayJobsData(url);
-  initialisePaginationButtons(jobsData);
-  setHeight(formContainer, 0);
+  try {
+    event.preventDefault();
+    let locationName = locationElement.value;
+    let keywords = keywordsElement.value;
+    let distance = distanceElement.value;
+    let minimumSalary = salaryFromElement.value;
+    let maximumSalary = salaryToElement.value;
+    let checkedUrl = checkedCriteria
+      .map((k) => {
+        return `&${k}=true`;
+      })
+      .join('');
+    // Below function will render the url
+    let url = renderUrl(
+      keywords,
+      distance,
+      minimumSalary,
+      maximumSalary,
+      locationName,
+      checkedUrl
+    );
+    // save url to local storage
+    localStorage.setItem('url', url);
+    localStorage.setItem('currentPage', 1);
+    // Gets and displays job data
+    const jobsData = await getAndDisplayJobsData(url);
+    initialisePaginationButtons(jobsData);
+    setHeight(formContainer, 0);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 favouritesBtn.addEventListener('click', function () {
@@ -113,47 +113,51 @@ window.addEventListener('DOMContentLoaded', () => {
     coordinates.push(coords);
   });
 
-  factors.forEach(async (factor) => {
-    const url = renderOnsUrl(factor);
-    console.log(url);
-    const data = await fetchOnsData(url);
-    const { observations } = data;
-    let wellbeing = observations.map(({ observation }) => observation);
-    let geography = observations.map((a) => a.dimensions['Geography'].label);
-    let result = {};
-    geography.forEach((key, i) => (result[key] = wellbeing[i]));
-    const filtered = Object.keys(result)
-      .filter((key) => cities.includes(key))
-      .reduce((obj, key) => {
-        obj[key] = result[key];
-        return obj;
-      }, {});
-    factorsFiltered.push(filtered);
-    // Object created
-    let obj = {};
+  if (!localStorage.getItem('ons')) {
+    factors.forEach(async (factor) => {
+      try {
+        const url = renderOnsUrl(factor);
+        const data = await fetchOnsData(url);
+        const { observations } = data;
+        let wellbeing = observations.map(({ observation }) => observation);
+        let geography = observations.map(
+          (a) => a.dimensions['Geography'].label
+        );
+        let result = {};
+        geography.forEach((key, i) => (result[key] = wellbeing[i]));
+        const filtered = Object.keys(result)
+          .filter((key) => cities.includes(key))
+          .reduce((obj, key) => {
+            obj[key] = result[key];
+            return obj;
+          }, {});
+        factorsFiltered.push(filtered);
+        // Object created
+        let obj = {};
 
-    // Using loop to insert key to value in object
-    for (let i = 0; i < factors.length; i++) {
-      obj[factors[i]] = factorsFiltered[i];
-    }
-    console.log('filtered', factorsFiltered);
-    console.log(obj);
-    localStorage.setItem('ons', JSON.stringify(obj));
-  });
-
-  console.log('DOM fully loaded and parsed');
+        // Using loop to insert key to value in object
+        for (let i = 0; i < factors.length; i++) {
+          obj[factors[i]] = factorsFiltered[i];
+        }
+        localStorage.setItem('ons', JSON.stringify(obj));
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
 });
 
 contactBtn.addEventListener('click', function () {
   window.location.replace('/contact.html');
 });
 async function addMarker(city, index, array) {
-  const url = renderGeocodeUrl(city);
-  const coords = await getCoordinates(url);
-  coords['id'] = array[index];
-  var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-  let storedOns = JSON.parse(localStorage.getItem('ons'));
-  marker.bindPopup(`<b> ${city}: </b> 
+  try {
+    const url = renderGeocodeUrl(city);
+    const coords = await getCoordinates(url);
+    coords['id'] = array[index];
+    var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
+    let storedOns = JSON.parse(localStorage.getItem('ons'));
+    marker.bindPopup(`<b> ${city}: </b> 
   <br>
   <b> Happiness:</b> ${storedOns['happiness'][city]}
   <br>
@@ -163,5 +167,8 @@ async function addMarker(city, index, array) {
   <br>
   <b> Anxiety: </b> ${storedOns['anxiety'][city]}
   <br>`).openPopup;
-  return coords;
+    return coords;
+  } catch (error) {
+    console.log(error);
+  }
 }
