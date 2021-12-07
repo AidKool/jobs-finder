@@ -107,9 +107,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// contactBtn.addEventListener('click', function () {
-//   window.location.replace('/contact.html');
-// });
+contactBtn.addEventListener('click', function () {
+  window.location.replace('/contact.html');
+});
+
 async function addMarker(city, index) {
   try {
     const url = renderGeocodeUrl(city);
