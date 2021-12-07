@@ -2,78 +2,115 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>Contact Us</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>Contact Us</title>
 </head>
 
 <body>
-    <nav class="navbar has-shadow is-dark">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item">
-              <small class="is-size-4">Job searching made easy</small>
-            </a>
-            <div class="navbar-burger burger">
-              <span></span>
-              <span></span>
-              <span></span>
+  <nav class="navbar has-shadow is-dark">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item">
+          <small class="is-size-4">Job searching made easy</small>
+        </a>
+        <div class="navbar-burger burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section class="section has-text-centered">
+      <h1 class="title is-size-1">Contact us</h1>
+      <p class="is-size-4">Please get in touch if you have any questions.</p>
+    </section>
+    <section class="section">
+      <form action="https://formspree.io/f/xayvyyla" method="POST">
+        <div class="field">
+          <div class="columns is-justify-content-center">
+            <div class="column is-3">
+              <label for="first-name">First name</label>
+              <input class="input is-normal" type="text" name="fname" placeholder="First name">
+            </div>
+            <div class="column is-3">
+              <label for="last-name">Last name</label>
+              <input class="input is-normal" type="text" name="lname" placeholder="Last name">
+            </div>
+          </div>
+          <div class="columns is-justify-content-center">
+            <div class="column is-3">
+              <label for="phone-number">Phone number (optional)</label>
+              <input class="input is-normal" type="text" placeholder="Phone number">
+            </div>
+            <div class="column is-3">
+              <label for="email">Email</label>
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-justify-content-center">
+            <div class="column is-6">
+              <label for="questions">Please provide any additional information: (optional)</label>
+              <textarea class="textarea" placeholder="Please leave any additional comments here"></textarea>
             </div>
           </div>
         </div>
-      </nav>
-    <main>
-        <section class="section has-text-centered">
-            <h1 class="title is-size-1">Contact us</h1>
-            <p class="is-size-4">Please get in touch if you have any questions.</p>
-        </section>
-            <section class="section is-medium">
-                <div class="field">
-                    <div class="columns is-justify-content-center">
-                        <div class="column is-one-quarter">
-                            <label for="first-name">First name</label>
-                            <input class="input is-normal" type="text" placeholder="First name">  
-                        </div>
-                        <div class="column is-one-quarter">
-                            <label for="last-name">Last name</label>
-                            <input class="input is-normal" type="text" placeholder="Last name">
-                        </div>   
-                    </div>  
-                    <div class="columns is-justify-content-center">  
-                        <div class="column is-one-quarter">
-                            <label for="phone-number">Phone number (optional)</label>
-                            <input class="input is-normal" type="text" placeholder="Phone number">  
-                        </div>
-                        <div class="column is-one-quarter">
-                            <label for="email">Email</label>
-                            <div class="field">
-                                <p class="control has-icons-left has-icons-right">
-                                  <input class="input" type="email" placeholder="Email">
-                                  <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                  </span>
-                                  <span class="icon is-small is-right">
-                                    <i class="fas fa-check"></i>
-                                  </span>
-                                </p>
-                            </div> 
-                        </div>    
-                    </div>
-                </div>
-            </section>
-    </main>
-    <footer class="footer py-5 has-background-dark">
-        <div class="content has-text-centered">
-          <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
+        <div class="columns is-justify-content-center">
+          <button type="submit" value="submit" class="submit button is-success">
+            Submit
+          </button>
         </div>
-    </footer>
+        </div>
+        </div>
+    </section>
+    </form>
+  </main>
+  <footer class="footer py-5 has-background-dark">
+    <div class="container center-row">
+      <a href="https://www.facebook.com/Reedcouk">
+        <span class="icon is-small mr-2">
+          <i class="fab fa-facebook-f"></i>
+        </span>
+      </a>
+      <a href="https://twitter.com/reedcouk">
+        <span class="icon is-small mr-2">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a href="https://www.youtube.com/user/reedglobal">
+        <span class="icon is-small mr-2">
+          <i class="fab fa-youtube"></i>
+        </span>
+      </a>
+      <a href="https://www.instagram.com/reedcouk/">
+        <span class="icon is-small mr-2">
+          <i class="fab fa-instagram"></i>
+        </span>
+      </a>
+    </div>
+    <div class="content has-text-centered">
+      <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
+    </div>
+  </footer>
 </body>
 
 </html>
