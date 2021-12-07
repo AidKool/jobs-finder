@@ -45,10 +45,6 @@ main {
   line-height: 1;
 }
 
-.contactBtn {
-  color: black;
-}
-
 @media (max-width: 1024px) {
   .desktop {
     display: none;
