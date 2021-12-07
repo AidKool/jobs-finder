@@ -61,7 +61,7 @@ function favouritesHandler() {
   const favourites = document.querySelectorAll('.favourite');
   favourites.forEach((item) => {
     item.addEventListener('click', (event) => {
-      var element = event.target;
+      const element = event.currentTarget;
       const rank = element.getAttribute('data-order');
       let storedJobs = JSON.parse(localStorage.getItem('jobs'));
       let favouriteJobs = JSON.parse(localStorage.getItem('favourites')) || [];
