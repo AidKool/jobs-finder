@@ -17,6 +17,7 @@ import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
 import './utils/toggleForm.js';
 import { formContainer, setHeight } from './utils/toggleForm.js';
 import { getONS, cities } from './utils/getONS.js';
+import './utils/styles.js';
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
