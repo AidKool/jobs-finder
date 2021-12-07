@@ -38,7 +38,10 @@ export const renderJobsSearchData = (jobs) => {
                   <i class="fas fa-pound-sign"></i>
                   <p class="ml-2">${job.salaryRange}</p>
                   </div>
-                  <p>${removeTags(job.description)}</p>
+                  <div>
+                  <article>${removeTags(job.description)}</article>
+                  </div>
+                  <br>
                   <button class="button favourite" data-order="${index}">Favourite<i class="far fa-heart ml-2"></i></button>
                 </article>
               </li>`;
