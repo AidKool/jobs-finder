@@ -1,5 +1,5 @@
 const navbar = document.querySelector('body > nav');
-const main = document.querySelector('main.section');
+const main = document.querySelector('main');
 const footer = document.querySelector('footer');
 
 window.addEventListener('DOMContentLoaded', function () {

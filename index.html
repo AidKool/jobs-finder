@@ -33,6 +33,14 @@
           <a class="navbar-item">
             <small class="is-size-4">Job searching made easy</small>
           </a>
+          <!-- favourites -->
+          <a class="navbar-item favourites" href="./favourites.html">
+            <span class="icon is-small mr-2">
+              <i class="fas fa-heart"></i>
+            </span>
+            <span class="favourites-text">Favourites</span>
+          </a>
+          <!-- end of favourites -->
           <div class="navbar-burger burger">
             <span></span>
             <span></span>
@@ -141,24 +149,55 @@
                 <div class="field">
                   <label class="label">Job Type</label>
                   <div class="center-column start">
-                    <label class="checkbox">
-                      <input type="checkbox" name="permanent" />
+                    <label
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input type="checkbox" class="mr-1" name="permanent" />
                       Permanent
                     </label>
-                    <label class="checkbox">
-                      <input type="checkbox" name="temp" />
+                    <label
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input type="checkbox" class="mr-1" name="temp" />
                       Temporary
                     </label>
-                    <label class="checkbox">
-                      <input type="checkbox" name="contract" />
+                    <label
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input type="checkbox" class="mr-1" name="contract" />
                       Contract
                     </label>
-                    <label class="checkbox">
-                      <input type="checkbox" name="fullTime" />
+                    <label
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input
+                        type="checkbox"
+                        class="mr-1"
+                        name="fullTime"
+                        class=""
+                      />
                       Full-time
                     </label>
-                    <label class="checkbox">
-                      <input type="checkbox" name="partTime" />
+                    <label
+                      class="checkbox is-size-7 is-flex is-align-content-center"
+                    >
+                      <input type="checkbox" class="mr-1" name="partTime" />
                       Part-time
                     </label>
                   </div>
@@ -166,12 +205,28 @@
                 <div class="field">
                   <label class="label">Posted by</label>
                   <div class="center-column start">
-                    <label class="checkbox">
-                      <input type="checkbox" name="postedByRecruitmentAgency" />
+                    <label
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input
+                        type="checkbox"
+                        class="mr-1"
+                        name="postedByRecruitmentAgency"
+                      />
                       Agency
                     </label>
-                    <label class="checkbox">
-                      <input type="checkbox" name="postedByDirectEmployer" />
+                    <label
+                      class="checkbox is-size-7 is-flex is-align-content-center"
+                    >
+                      <input
+                        type="checkbox"
+                        class="mr-1"
+                        name="postedByDirectEmployer"
+                      />
                       Employer
                     </label>
                   </div>
@@ -184,15 +239,6 @@
                     >
                       Submit
                     </button>
-                    <a
-                      href="./favourites.html"
-                      class="button is-info is-fullwidth favourites"
-                    >
-                      <span class="icon is-small mr-2">
-                        <i class="fas fa-heart ml-2"></i>
-                      </span>
-                      Favourites
-                    </a>
                   </div>
                 </div>
               </form>
