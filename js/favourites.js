@@ -1,5 +1,6 @@
 import { renderJobsSearchData } from './utils/renderJobsSearchData.js';
 import './utils/getIndividualJobData.js';
+import './utils/styles.js';
 
 const favourites = JSON.parse(localStorage.getItem('favourites')) || [];
 const main = document.querySelector('main .column');

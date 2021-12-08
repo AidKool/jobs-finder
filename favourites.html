@@ -20,7 +20,7 @@
     <title>Favourite Jobs</title>
   </head>
   <body>
-    <nav class="navbar has-shadow is-dark is-fixed-top">
+    <nav class="navbar has-shadow is-dark">
       <div class="container">
         <div class="navbar-start">
           <a class="navbar-item" href="./index.html">
@@ -29,19 +29,27 @@
         </div>
       </div>
     </nav>
-    <main class="section">
-      <div class="columns is-justify-content-center">
-        <div
-          class="column is-12-mobile is-10-tablet is-9-desktop is-7-fullhd jobs"
-        >
-          <h2 class="title has-text-centered">Favourite Jobs</h2>
-          <ul></ul>
-          <button class="button is-link is-pulled-right">
-            <a class="has-text-white" href="/index.html">Go back</a>
-          </button>
+    <main class="section is-flex is-align-items-center">
+      <div class="container">
+        <div class="columns is-justify-content-center">
+          <div
+            class="
+              column
+              is-12-mobile is-10-tablet is-9-desktop is-7-fullhd
+              jobs
+            "
+          >
+            <h2 class="title has-text-centered">Favourite Jobs</h2>
+            <ul></ul>
+            <a
+              class="button is-link is-pulled-right has-text-white"
+              href="/index.html"
+              >Go back</a
+            >
+          </div>
         </div>
+        <div class="modal jobs-modal"></div>
       </div>
-      <div class="modal jobs-modal"></div>
     </main>
     <footer class="footer py-4 has-background-dark">
       <div class="container center-row">
