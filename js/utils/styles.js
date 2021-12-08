@@ -10,3 +10,11 @@ window.addEventListener('DOMContentLoaded', function () {
   console.log('footerHeight', footerHeight);
   console.log('mainHeight', main.getBoundingClientRect().height);
 });
+
+// mobile menu
+const burgerIcon = document.querySelector('.navbar-burger');
+const navbarMenu = document.querySelector('.navbar-menu');
+
+burgerIcon.addEventListener('click', () => {
+  navbarMenu.classList.toggle('is-active');
+});
