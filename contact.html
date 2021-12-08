@@ -21,7 +21,13 @@
         <a class="navbar-item" href="./index.html">
           <small class="is-size-4">Jobs Finder</small>
         </a>
+        <a class="navbar-burger" id="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
       </div>
+    </div>
     </div>
     <div id="navbarExampleTransparentExample" class="navbar-menu">
       <div class="navbar-start">
@@ -35,6 +41,7 @@
           <a class="navbar-link is-white" href="/documentation/overview/start/">
             <span class="icon"> <i class="is-white fa fa-book"></i> </span><span> Documentation </span>
           </a>
+
 
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="https://www.reed.co.uk/developers/jobseeker">
@@ -90,6 +97,18 @@
             </div>
           </div>
           <div class="columns is-justify-content-center">
+            <div class="column is-6">
+              <label for="questions"
+                >Please provide any additional information:
+                (optional)</label
+              >
+              <textarea
+                class="textarea"
+                placeholder="Please leave any additional comments here"
+              ></textarea>
+            </div>
+        </div>
+          <div class="columns is-justify-content-center">
             <button type="submit" value="submit" class="submit button is-success">
               Submit
             </button>
@@ -128,6 +147,9 @@
       <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
     </div>
   </footer>
+  <!-- javascript -->
+  <script src="./js/utils/styles.js"></script>
+  <script src="./js/utils/mobile.js"></script>
 </body>
 
 </html>
