@@ -48,6 +48,33 @@ body {
 }
 
 /********** 
+GLOBAL
+**********/
+.navbar-brand {
+  position: relative;
+  width: 100%;
+}
+
+.favourites {
+  position: absolute;
+  height: 100%;
+  right: 30px;
+}
+
+.favourites-text {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .favourites {
+    right: 0;
+  }
+  .favourites-text {
+    display: inline;
+  }
+}
+
+/********** 
 MAP
 **********/
 .map {
