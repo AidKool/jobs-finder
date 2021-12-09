@@ -138,12 +138,25 @@ MENU
 }
 
 /********** 
-SOCIAL MEDIA
+FOOTER
 **********/
+
+.footer {
+  min-height: 50vh;
+}
 
 .footer .container {
   display: flex;
   text-align: center;
+}
+
+.footer h5 {
+  color: hsl(204, 86%, 53%);
+}
+
+.footer li a,
+.footer p {
+  color: white;
 }
 
 .social-media .icon,
