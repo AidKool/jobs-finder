@@ -117,30 +117,20 @@ FORM
   }
 }
 
-a:hover .fa-heart,
-button:hover .fa-heart {
-  position: relative;
-  animation: heartbeat 1.4s linear infinite;
+/********** 
+MENU
+**********/
+.menu-container {
+  display: block;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms ease-in-out;
 }
 
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.4);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  70% {
-    transform: scale(1.4);
-  }
-  100% {
-    transform: scale(1);
+@media screen and (min-width: 1024px) {
+  .menu-container {
+    height: auto !important;
   }
 }
 
@@ -214,6 +204,33 @@ FAVOURITES
   width: 100%;
   max-width: 600px;
   height: auto;
+}
+
+a:hover .fa-heart,
+button:hover .fa-heart {
+  position: relative;
+  animation: heartbeat 1.4s linear infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /********** 
