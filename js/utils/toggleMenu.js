@@ -24,3 +24,11 @@ documentation.addEventListener('mouseenter', function () {
 documentation.addEventListener('mouseleave', function () {
   menuContainer.classList.add('overflow-hidden');
 });
+
+navbarDropdown.addEventListener('mouseenter', function () {
+  menuContainer.classList.remove('overflow-hidden');
+});
+
+navbarDropdown.addEventListener('mouseleave', function () {
+  menuContainer.classList.add('overflow-hidden');
+});
