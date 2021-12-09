@@ -58,7 +58,8 @@ GLOBAL
 .favourites {
   position: absolute;
   height: 100%;
-  right: 30px;
+  right: 50px;
+  text-align: center;
 }
 
 .favourites-text {
@@ -71,6 +72,7 @@ GLOBAL
   }
   .favourites-text {
     display: inline;
+    padding-left: 10px;
   }
 }
 
