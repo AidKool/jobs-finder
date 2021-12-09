@@ -295,3 +295,9 @@ CONTACT PAGE
 .navbar-brand .is-large {
   font-size: 1.25rem;
 }
+
+@media screen and (max-width: 1024px) {
+  .navbar-link:not(.is-arrowless)::after {
+    border: none;
+  }
+}
