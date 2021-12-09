@@ -27,38 +27,48 @@
           <a class="navbar-item" href="./index.html">
             <small class="is-size-4">Jobs Finder</small>
           </a>
-          <a class="navbar-burger" id="burger">
+          <a class="navbar-burger burger">
             <span></span>
             <span></span>
             <span></span>
           </a>
         </div>
       </div>
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="/index.html"
-            ><span class="icon"> <i class="fa fa-home"></i> </span
-            ><span> Home </span>
+      <div
+        id="navbarExampleTransparentExample"
+        class="
+          navbar-menu
+          menu-container
+          overflow-hidden
+          is-flex-desktop is-align-content-center
+        "
+      >
+        <div class="navbar-start menu">
+          <a class="navbar-item" href="/index.html">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span>
+            <span>Home</span>
           </a>
           <a class="navbar-item" href="https://github.com/AidKool/jobs-finder">
-            <span class="icon"> <i class="fab fa-github"></i> </span
-            ><span> View Source </span>
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+            <span>View Source</span>
           </a>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a
-              class="navbar-link is-white"
-              href="/documentation/overview/start/"
-            >
-              <span class="icon"> <i class="is-white fa fa-book"></i> </span
-              ><span> Documentation </span>
-            </a>
+            <div class="navbar-link is-white documentation">
+              <span class="icon">
+                <i class="fa fa-book"></i>
+              </span>
+              <span>Documentation</span>
+            </div>
 
             <div class="navbar-dropdown is-boxed">
               <a
                 class="navbar-item"
                 href="https://www.reed.co.uk/developers/jobseeker"
-              >
-                Reed Jobseeker
+                >Reed Jobseeker
               </a>
               <a class="navbar-item" href="https://developer.ons.gov.uk/">
                 Office for National Statistics
@@ -171,7 +181,6 @@
     </main>
 
     <!-- javascript -->
-    <script src="./js/utils/styles.js"></script>
-    <script src="./js/utils/mobile.js"></script>
+    <script type="module" src="./js/contact.js"></script>
   </body>
 </html>

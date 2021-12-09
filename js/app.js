@@ -15,7 +15,8 @@ import { renderOnsUrl } from './utils/renderOnsUrl.js';
 import { fetchOnsData } from './utils/fetchOnsData.js';
 import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
 import './utils/toggleForm.js';
-import { formContainer, setHeight } from './utils/toggleForm.js';
+import { formContainer } from './utils/toggleForm.js';
+import { setHeight } from './utils/setHeight.js';
 import { getONS, cities } from './utils/getONS.js';
 import './utils/styles.js';
 

@@ -1,3 +1,5 @@
+import { setHeight } from './setHeight.js';
+
 const toggleBtn = document.querySelector('.burger');
 export const formContainer = document.querySelector('.form-container');
 export const form = document.querySelector('form');
@@ -12,7 +14,3 @@ toggleBtn.addEventListener('click', function () {
     setHeight(formContainer, 0);
   }
 });
-
-export function setHeight(element, height) {
-  element.style.height = `${height}px`;
-}
