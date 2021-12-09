@@ -51,13 +51,13 @@ body {
 GLOBAL
 **********/
 .navbar-brand {
-  position: relative;
-  width: 100%;
+  /* position: relative; */
 }
 
 .favourites {
-  position: absolute;
+  /* position: absolute; */
   height: 100%;
+  margin-right: 0;
   right: 50px;
   text-align: center;
 }
