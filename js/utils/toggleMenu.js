@@ -3,6 +3,8 @@ import { setHeight } from './setHeight.js';
 const toggleBtn = document.querySelector('.burger');
 const menuContainer = document.querySelector('.menu-container');
 const menu = document.querySelector('.menu');
+const documentation = document.querySelector('.documentation');
+const navbarDropdown = document.querySelector('.navbar-dropdown');
 
 toggleBtn.addEventListener('click', function () {
   const containerHeight = menuContainer.getBoundingClientRect().height;
@@ -13,6 +15,12 @@ toggleBtn.addEventListener('click', function () {
   } else {
     setHeight(menuContainer, 0);
   }
-  console.log('container', menuContainer.getBoundingClientRect().height);
-  console.log('menu', menuHeight);
+});
+
+documentation.addEventListener('mouseenter', function () {
+  menuContainer.classList.remove('overflow-hidden');
+});
+
+documentation.addEventListener('mouseleave', function () {
+  menuContainer.classList.add('overflow-hidden');
 });

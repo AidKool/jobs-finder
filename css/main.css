@@ -124,8 +124,11 @@ MENU
   display: block;
   padding: 0;
   height: 0;
-  overflow: hidden;
   transition: height 350ms ease-in-out;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {
@@ -138,7 +141,7 @@ MENU
 SOCIAL MEDIA
 **********/
 
-.footer container {
+.footer .container {
   display: flex;
   text-align: center;
 }
