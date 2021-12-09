@@ -47,15 +47,20 @@ body {
   }
 }
 
-/********** 
-GLOBAL
-**********/
-.navbar-brand {
-  /* position: relative; */
+.relative {
+  position: relative;
 }
 
+.full-width {
+  width: 100%;
+}
+
+/********** 
+FAVOURITES
+**********/
+
 .favourites {
-  /* position: absolute; */
+  position: absolute;
   height: 100%;
   margin-right: 0;
   right: 50px;
