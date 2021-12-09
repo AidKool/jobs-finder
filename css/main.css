@@ -159,6 +159,10 @@ FOOTER
   color: white;
 }
 
+.footer li a:hover {
+  text-decoration: underline;
+}
+
 .social-media .icon,
 .footer .icon {
   width: 50px;
