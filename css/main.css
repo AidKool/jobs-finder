@@ -72,6 +72,7 @@ GLOBAL
   }
   .favourites-text {
     display: inline;
+    padding-left: 10px;
   }
 }
 
