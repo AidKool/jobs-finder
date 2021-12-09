@@ -278,3 +278,7 @@ CONTACT PAGE
     height: 50px;
   }
 }
+
+.navbar-brand .is-large {
+  font-size: 1.25rem;
+}
