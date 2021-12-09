@@ -307,3 +307,11 @@ CONTACT PAGE
     border: none;
   }
 }
+
+.menu-container .navbar-item {
+  color: white;
+}
+
+.menu-container .navbar-link {
+  color: white;
+}
