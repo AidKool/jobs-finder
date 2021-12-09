@@ -153,6 +153,7 @@ SOCIAL MEDIA
   text-align: center;
 }
 
+.social-media .icon,
 .footer .icon {
   width: 50px;
   height: 50px;
@@ -165,17 +166,20 @@ SOCIAL MEDIA
   overflow: hidden;
 }
 
+.social-media icon i,
 .footer icon i {
   line-height: 90px;
   font-size: 25px;
   transition: all 0.2;
 }
 
+.social-media .icon:hover i,
 .footer .icon:hover i {
   transform: scale(1.3);
   color: #f1f1f1;
 }
 
+.social-media .icon:before,
 .footer .icon:before {
   content: '';
   position: absolute;
@@ -187,6 +191,7 @@ SOCIAL MEDIA
   transform: rotate(45deg);
 }
 
+.social-media .icon:hover:before,
 .footer .icon:hover:before {
   animation: icon-animation 0.7s 1 forwards;
 }
@@ -222,4 +227,21 @@ ATTRIBUTION
 
 .attribution {
   font-size: 0.5rem;
+}
+
+/********** 
+CONTACT PAGE
+**********/
+
+.social-media {
+  margin-top: 30px;
+}
+
+.social-media .icon {
+  width: 60px;
+  height: 60px;
+}
+
+.social-media .icon:first-of-type {
+  margin-left: 0;
 }
