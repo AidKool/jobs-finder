@@ -79,123 +79,104 @@
       </div>
     </nav>
     <main>
-      <section class="section has-text-centered">
-        <h1 class="title is-size-1">Contact us</h1>
-        <p class="is-size-4">Please get in touch if you have any questions.</p>
-      </section>
-      <section class="section">
-        <form action="https://formspree.io/f/xayvyyla" method="POST">
-          <div class="field">
-            <div class="columns is-justify-content-center">
-              <div class="column is-3">
-                <label for="fname">First name</label>
-                <input
-                  class="input is-normal"
-                  type="text"
-                  id="fname"
-                  name="fname"
-                  placeholder="First name"
-                />
-              </div>
-              <div class="column is-3">
-                <label for="lname">Last name</label>
-                <input
-                  class="input is-normal"
-                  type="text"
-                  id="lname"
-                  name="lname"
-                  placeholder="Last name"
-                />
-              </div>
-            </div>
-            <div class="columns is-justify-content-center">
-              <div class="column is-3">
-                <label for="telNo">Phone number (optional)</label>
-                <input
-                  class="input is-normal"
-                  id="telNo"
-                  name="telNo"
-                  type="tel"
-                  size="13"
-                  minlength="10"
-                  maxlength="13"
-                />
-              </div>
-              <div class="column is-3">
-                <label for="email">Email</label>
-                <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input
-                      class="input"
-                      type="email"
-                      id="email"
-                      placeholder="Email"
-                    />
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
+      <section class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <div class="columns is-8 is-variable">
+              <div class="column is-two-thirds has-text-left">
+                <h1 class="title is-1">Contact Us</h1>
+                <p class="is-size-4">
+                  Please get in touch if you have any questions.
+                </p>
+                <div class="social-media">
+                  <a href="https://www.facebook.com/Reedcouk">
+                    <span class="button icon is-light is-large mr-2">
+                      <i class="fab fa-facebook-f"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
+                  </a>
+                  <a href="https://twitter.com/reedcouk">
+                    <span class="button icon is-light is-large mr-2">
+                      <i class="fab fa-twitter"></i>
                     </span>
-                  </p>
+                  </a>
+                  <a href="https://www.youtube.com/user/reedglobal">
+                    <span class="button icon is-light is-large mr-2">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                  </a>
+                  <a href="https://www.instagram.com/reedcouk/">
+                    <span class="button icon is-light is-large mr-2">
+                      <i class="fab fa-instagram"></i>
+                    </span>
+                  </a>
                 </div>
               </div>
-            </div>
-            <div class="columns is-justify-content-center">
-              <div class="column is-6">
-                <label for="questions"
-                  >Please provide any additional information: (optional)</label
-                >
-                <textarea
-                  class="textarea"
-                  placeholder="Please leave any additional comments here"
-                >
-                </textarea>
+              <div class="column is-one-third has-text-left">
+                <form action="https://formspree.io/f/xayvyyla" method="POST">
+                  <div class="field">
+                    <label class="label" for="full-name">Name</label>
+                    <div class="control">
+                      <input
+                        class="input is-medium"
+                        id="full-name"
+                        type="text"
+                        name="full-name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="email">Your Email</label>
+                    <div class="control">
+                      <p class="control has-icons-left has-icons-right">
+                        <input
+                          class="input"
+                          name="_replyto"
+                          type="email"
+                          id="email"
+                          placeholder="Email"
+                          name="email"
+                        />
+                        <span class="icon is-small is-left">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                      <textarea
+                        class="textarea is-medium"
+                        name="message"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <button
+                      type="submit"
+                      class="
+                        submit
+                        button
+                        is-link is-fullwidth
+                        has-text-weight-medium
+                        is-medium
+                      "
+                    >
+                      Send Message
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
-            <div class="columns is-justify-content-center">
-              <button
-                type="submit"
-                value="submit"
-                class="submit button is-success"
-              >
-                Submit
-              </button>
-            </div>
-            <button class="button is-link is-pulled-right">
-              <a class="has-text-white" href="/index.html">Go back</a>
-            </button>
           </div>
-        </form>
+        </div>
       </section>
     </main>
-    <footer class="footer py-4 has-background-dark">
-      <div class="container center-row">
-        <a href="https://www.facebook.com/Reedcouk">
-          <span class="icon is-small mr-2">
-            <i class="fab fa-facebook-f"></i>
-          </span>
-        </a>
-        <a href="https://twitter.com/reedcouk">
-          <span class="icon is-small mr-2">
-            <i class="fab fa-twitter"></i>
-          </span>
-        </a>
-        <a href="https://www.youtube.com/user/reedglobal">
-          <span class="icon is-small mr-2">
-            <i class="fab fa-youtube"></i>
-          </span>
-        </a>
-        <a href="https://www.instagram.com/reedcouk/">
-          <span class="icon is-small mr-2">
-            <i class="fab fa-instagram"></i>
-          </span>
-        </a>
-      </div>
-      <div class="content has-text-centered mb-0">
-        <p class="has-text-light">&copy; 2021 All Rights Reserverd</p>
-      </div>
-    </footer>
+
     <!-- javascript -->
     <script type="module" src="./js/contact.js"></script>
   </body>

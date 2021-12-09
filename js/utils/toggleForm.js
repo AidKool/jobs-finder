@@ -1,4 +1,4 @@
-import { setHeight } from './styles.js';
+import { setHeight } from './setHeight.js';
 
 const toggleBtn = document.querySelector('.burger');
 export const formContainer = document.querySelector('.form-container');

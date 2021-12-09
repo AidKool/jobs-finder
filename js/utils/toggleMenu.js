@@ -1,4 +1,4 @@
-import { setHeight } from './styles.js';
+import { setHeight } from './setHeight.js';
 
 const toggleBtn = document.querySelector('.burger');
 const menuContainer = document.querySelector('.menu-container');

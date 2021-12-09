@@ -8,6 +8,4 @@ window.addEventListener('DOMContentLoaded', function () {
   main.style.minHeight = `calc(100vh - ${navbarHeight}px - ${footerHeight}px)`;
 });
 
-export function setHeight(element, height) {
-  element.style.height = `${height}px`;
-}
+
