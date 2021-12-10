@@ -1,4 +1,30 @@
 /********** 
+VARIABLES
+**********/
+:root {
+  /* COLOURS */
+  --blue: #0000ff;
+  --blue-job-title: hsl(229, 86%, 56%);
+  --blue-info: hsl(204, 86%, 53%);
+  --white: #ffffff;
+  --light-grey: #f1f1f1;
+  --social-media-green: #10ac84;
+  --green: #2e8b57;
+  --yellow: #ffff00;
+  --dark-red: #8b0000;
+
+  /* TRANSITIONS */
+  --toggle-transition: height 350ms ease-in-out;
+
+  /* BOX SHADOW */
+  --icon-box-shadow: 0 5px 15px -5px #00000070;
+
+  /* ANIMATION */
+  --icon-animation: 0.7s 1 forwards;
+  --heartbeat-animation: 1.4s linear infinite;
+}
+
+/********** 
 GLOBAL
 **********/
 body {
@@ -25,26 +51,6 @@ body {
 
 .start {
   align-items: flex-start;
-}
-.right {
-  justify-content: flex-end;
-}
-.bottom {
-  align-items: flex-end;
-}
-.left {
-  justify-content: flex-start;
-}
-
-.single-spaced,
-.single-spaced * {
-  line-height: 1;
-}
-
-@media (max-width: 1024px) {
-  .desktop {
-    display: none;
-  }
 }
 
 .relative {
@@ -98,7 +104,7 @@ JOBS LIST
 **********/
 .jobs h3.title:hover {
   cursor: pointer;
-  color: hsl(229, 86%, 56%);
+  color: var(--blue-job-title);
   text-decoration: underline;
 }
 
@@ -115,7 +121,7 @@ FORM
 .form-container {
   height: 0;
   overflow: hidden;
-  transition: height 350ms ease-in-out;
+  transition: var(--toggle-transition);
 }
 
 @media screen and (min-width: 1024px) {
@@ -131,7 +137,7 @@ MENU
   display: block;
   padding: 0;
   height: 0;
-  transition: height 350ms ease-in-out;
+  transition: var(--toggle-transition);
 }
 
 .overflow-hidden {
@@ -158,12 +164,12 @@ FOOTER
 }
 
 .footer h5 {
-  color: hsl(204, 86%, 53%);
+  color: var(--blue-info);
 }
 
 .footer li a,
 .footer p {
-  color: white;
+  color: var(--white);
 }
 
 .footer li a:hover {
@@ -174,11 +180,11 @@ FOOTER
 .footer .icon {
   width: 50px;
   height: 50px;
-  background-color: #f1f1f1;
+  background-color: var(--light-grey);
   margin: 10px;
   border-radius: 30%;
-  color: #10ac84;
-  box-shadow: 0 5px 15px -5px #00000070;
+  color: var(--social-media-green);
+  box-shadow: var(--icon-box-shadow);
   position: relative;
   overflow: hidden;
 }
@@ -193,7 +199,7 @@ FOOTER
 .social-media .icon:hover i,
 .footer .icon:hover i {
   transform: scale(1.3);
-  color: #f1f1f1;
+  color: var(--light-grey);
 }
 
 .social-media .icon:before,
@@ -202,7 +208,7 @@ FOOTER
   position: absolute;
   width: 120%;
   height: 120%;
-  background-color: #10ac84;
+  background-color: var(--social-media-green);
   left: -110%;
   top: 90%;
   transform: rotate(45deg);
@@ -210,7 +216,7 @@ FOOTER
 
 .social-media .icon:hover:before,
 .footer .icon:hover:before {
-  animation: icon-animation 0.7s 1 forwards;
+  animation: icon-animation var(--icon-animation);
 }
 
 @keyframes icon-animation {
@@ -241,7 +247,7 @@ FAVOURITES
 a:hover .fa-heart,
 button:hover .fa-heart {
   position: relative;
-  animation: heartbeat 1.4s linear infinite;
+  animation: heartbeat var(--heartbeat-animation);
 }
 
 @keyframes heartbeat {
@@ -290,12 +296,6 @@ CONTACT PAGE
   margin-left: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .hero.is-fullheight {
-    min-height: calc(100vh - 6.5rem - 40px);
-  }
-}
-
 @media screen and (max-width: 370px) {
   .social-media .icon {
     width: 50px;
@@ -314,17 +314,17 @@ CONTACT PAGE
 }
 
 .green {
-  background-color: #2e8b57;
-  color: #ffffff;
+  background-color: var(--green);
+  color: var(--white);
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: var(--yellow);
 }
 
 .red {
-  background-color: #8b0000;
-  color: #ffffff;
+  background-color: var(--dark-red);
+  color: var(--white);
 }
 
 .red,
@@ -335,7 +335,7 @@ CONTACT PAGE
 
 .figcaption-link:hover {
   text-decoration: underline;
-  color: blue;
+  color: var(--blue);
 }
 
 .figcaption {
