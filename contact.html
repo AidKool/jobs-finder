@@ -38,7 +38,6 @@
           </div>
         </div>
         <div
-          id="navbarExampleTransparentExample"
           class="
             navbar-menu
             menu-container
@@ -88,40 +87,60 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main class="section">
       <section class="hero is-fullheight">
         <div class="hero-body">
           <div class="container has-text-centered">
             <div class="columns is-8 is-variable">
-              <div class="column is-two-thirds has-text-left">
+              <div
+                class="
+                  column
+                  is-half-tablet is-three-fifths-desktop
+                  has-text-left
+                "
+              >
                 <h1 class="title is-1">Contact Us</h1>
                 <p class="is-size-4">
                   Please get in touch if you have any questions.
                 </p>
-                <div class="social-media">
-                  <a href="https://www.facebook.com/Reedcouk">
-                    <span class="button icon is-light is-large mr-2">
-                      <i class="fab fa-facebook-f"></i>
-                    </span>
-                  </a>
-                  <a href="https://twitter.com/reedcouk">
-                    <span class="button icon is-light is-large mr-2">
-                      <i class="fab fa-twitter"></i>
-                    </span>
-                  </a>
-                  <a href="https://www.youtube.com/user/reedglobal">
-                    <span class="button icon is-light is-large mr-2">
-                      <i class="fab fa-youtube"></i>
-                    </span>
-                  </a>
-                  <a href="https://www.instagram.com/reedcouk/">
-                    <span class="button icon is-light is-large mr-2">
-                      <i class="fab fa-instagram"></i>
-                    </span>
-                  </a>
-                </div>
+                <ul class="social-media is-flex">
+                  <li>
+                    <a href="https://www.facebook.com/Reedcouk">
+                      <span class="button icon is-light is-large mr-2">
+                        <i class="fab fa-facebook-f"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/reedcouk">
+                      <span class="button icon is-light is-large mr-2">
+                        <i class="fab fa-twitter"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/user/reedglobal">
+                      <span class="button icon is-light is-large mr-2">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.instagram.com/reedcouk/">
+                      <span class="button icon is-light is-large mr-2">
+                        <i class="fab fa-instagram"></i>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="column is-one-third has-text-left">
+              <div
+                class="
+                  column
+                  is-half-tablet is-two-fifths-desktop
+                  has-text-left
+                "
+              >
                 <form action="https://formspree.io/f/xayvyyla" method="POST">
                   <div class="field">
                     <label class="label" for="full-name">Name</label>
@@ -141,7 +160,7 @@
                       <p class="control has-icons-left has-icons-right">
                         <input
                           class="input"
-                          name="_replyto"
+                          name="email"
                           type="email"
                           id="email"
                           placeholder="Email"
@@ -157,11 +176,12 @@
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label">Message</label>
+                    <label class="label" for="message">Message</label>
                     <div class="control">
                       <textarea
                         class="textarea is-medium"
                         name="message"
+                        id="message"
                       ></textarea>
                     </div>
                   </div>
