@@ -86,18 +86,42 @@ window.addEventListener('DOMContentLoaded', async () => {
   ]);
 
   console.log(storedOns);
+  let test = [];
 
-  cities.forEach(async (city, index) => {
-    const marker = await addMarker(city, index);
-    marker.bindPopup(`<b> ${city}: </b> 
+  cities.forEach((city) => {
+    let obj = {
+      city: city,
+      happiness: storedOns[0][city],
+      worthwhile: storedOns[1][city],
+      lifeSatisfaction: storedOns[2][city],
+      anxiety: storedOns[3][city],
+      average: `${(
+        (Number(storedOns[0][city]) +
+          Number(storedOns[1][city]) +
+          Number(storedOns[2][city]) +
+          10 -
+          Number(storedOns[3][city])) /
+        4
+      ).toFixed(2)}`,
+    };
+    test.push(obj);
+  });
+
+  console.log(test);
+
+  test.forEach(async (obj, index) => {
+    const marker = await addMarker(obj.city, index);
+    marker.bindPopup(`<b> ${obj.city}: </b> 
   <br>
-  <b> Happiness:</b> ${storedOns[0][city]}
+  <b> Happiness:</b> ${obj.happiness}
   <br>
-  <b> Worthwhile: </b> ${storedOns[1][city]}
+  <b> Worthwhile: </b> ${obj.worthwhile}
   <br>
-  <b> Life-satisfaction: </b> ${storedOns[2][city]}
+  <b> Life-satisfaction: </b> ${obj.lifeSatisfaction}
   <br>
-  <b> Anxiety: </b> ${storedOns[3][city]}
+  <b> Anxiety: </b> ${obj.anxiety}
+  <br>
+  <b> Overall: </b> ${obj.average}
   <br>`).openPopup;
   });
 });
