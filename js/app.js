@@ -18,6 +18,7 @@ import './utils/toggleForm.js';
 import { formContainer } from './utils/toggleForm.js';
 import { setHeight } from './utils/setHeight.js';
 import { getONS, cities } from './utils/getONS.js';
+import { colourOns } from './utils/colourOns.js';
 import './utils/styles.js';
 
 // Define DOM elements
@@ -86,29 +87,49 @@ window.addEventListener('DOMContentLoaded', async () => {
   ]);
 
   console.log(storedOns);
+  let finalOns = [];
 
-  cities.forEach(async (city, index) => {
-    const marker = await addMarker(city, index);
-    marker.bindPopup(`<b> ${city}: </b> 
+  cities.forEach((city) => {
+    let obj = {
+      city: city,
+      happiness: storedOns[0][city],
+      worthwhile: storedOns[1][city],
+      lifeSatisfaction: storedOns[2][city],
+      anxiety: storedOns[3][city],
+      average: `${(
+        (Number(storedOns[0][city]) +
+          Number(storedOns[1][city]) +
+          Number(storedOns[2][city]) +
+          10 -
+          Number(storedOns[3][city])) /
+        4
+      ).toFixed(2)}`,
+    };
+    finalOns.push(obj);
+  });
+
+  finalOns.forEach(async (obj, index) => {
+    const marker = await addMarker(obj.city);
+    marker.bindPopup(`<b> ${obj.city}: </b> 
   <br>
-  <b> Happiness:</b> ${storedOns[0][city]}
+  <b> Happiness:</b> ${obj.happiness}
   <br>
-  <b> Worthwhile: </b> ${storedOns[1][city]}
+  <b> Worthwhile: </b> ${obj.worthwhile}
   <br>
-  <b> Life-satisfaction: </b> ${storedOns[2][city]}
+  <b> Life-satisfaction: </b> ${obj.lifeSatisfaction}
   <br>
-  <b> Anxiety: </b> ${storedOns[3][city]}
+  <b> Anxiety: </b> ${obj.anxiety}
+  <br>
+  ${colourOns(obj.average)}
   <br>`).openPopup;
   });
 });
 
-async function addMarker(city, index) {
+async function addMarker(city) {
   try {
     const url = renderGeocodeUrl(city);
     const coords = await getCoordinates(url);
-    // coords['id'] = array[index];
     var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-    // let storedOns = JSON.parse(localStorage.getItem('ons'));
     return marker;
   } catch (error) {
     console.log(error);

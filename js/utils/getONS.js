@@ -24,6 +24,11 @@ export const cities = [
   'York',
   'Luton',
   'Dover',
+  'Leicester',
+  'Exeter',
+  'Plymouth',
+  'Gloucester',
+  'Barrow-in-Furness',
 ];
 
 const factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
