@@ -29,7 +29,7 @@ jobList.addEventListener('click', async function (event) {
       jobsModal.classList.add('is-active'); // modal status to active to enable the following event listener to exit modal screen on modal-background click
 
       const modalBg = document.querySelector('.modal-background');
-      modalBg.addEventListener('click', function (event) {
+      modalBg.addEventListener('click', function () {
         jobsModal.classList.remove('is-active');
       });
     }

@@ -3,6 +3,7 @@ import { removeTags } from './removeTags.js';
 
 const jobList = document.querySelector('.jobs > ul');
 const numberJobs = document.querySelector('.number-jobs');
+const submitBtn = document.querySelector('button.submit');
 
 export function renderNumberJobs({ totalResults }) {
   numberJobs.innerHTML = `${totalResults} matching jobs found`;
@@ -13,6 +14,7 @@ export async function getAndDisplayJobsData(url) {
     const jobsData = await fetchJobs(url);
     renderNumberJobs(jobsData);
     renderJobsSearchData(jobsData.jobs);
+    submitBtn.classList.remove('is-loading');
     return jobsData;
   } catch (error) {
     console.log(error);
@@ -27,19 +29,19 @@ export const renderJobsSearchData = (jobs) => {
                 <article class="card-content content">
                   <h3 class="title mb-4" data-id="${job.id}">${job.title}</h3>
                   <div class="company-container is-flex is-align-items-center mb-2">
-                  <i class="fas fa-building"></i>
-                  <p class="ml-2">${job.employer}</p>
+                    <i class="fas fa-building"></i>
+                    <p class="ml-2">${job.employer}</p>
                   </div>
                   <div class="location-container is-flex is-align-items-center mb-2">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <p class="ml-2">${job.location}</p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p class="ml-2">${job.location}</p>
                   </div>
                   <div class="salary-container is-flex is-align-items-center mb-2">
-                  <i class="fas fa-pound-sign"></i>
-                  <p class="ml-2">${job.salaryRange}</p>
+                    <i class="fas fa-pound-sign"></i>
+                    <p class="ml-2">${job.salaryRange}</p>
                   </div>
                   <div>
-                  <article>${removeTags(job.description)}</article>
+                    <article>${removeTags(job.description)}</article>
                   </div>
                   <br>
                   <button class="button favourite" data-order="${index}">Favourite<i class="far fa-heart ml-2"></i></button>

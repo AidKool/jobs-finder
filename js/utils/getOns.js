@@ -32,10 +32,6 @@ export const cities = [
   'Barrow-in-Furness',
 ];
 
-// These are the 4 indices used to measure wellbeing by the ONS
-const factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-
-// function used to fetch ONS data by adding one of the wellbeing factors as input.
 export async function getOns(factor) {
   try {
     const url = renderOnsUrl(factor);
