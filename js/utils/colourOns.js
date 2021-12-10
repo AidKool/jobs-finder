@@ -1,9 +1,9 @@
 export const colourOns = (avg) => {
   if (avg < 7) {
-    return `<b class="red"> Overall: ${avg}</b>`;
+    return `<b>Average: <span class="red">${avg}</span></b>`;
   } else if (avg >= 7 && avg < 7.5) {
-    return `<b class="yellow"> Overall: ${avg}</b>`;
+    return `<b>Average: <span class="yellow">${avg}</span></b>`;
   } else {
-    return `<b class="green"> Overall: ${avg}</b>`;
+    return `<b>Average: <span class="green">${avg}</span></b>`;
   }
 };

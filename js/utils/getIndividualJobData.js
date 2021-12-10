@@ -27,9 +27,8 @@ jobList.addEventListener('click', async function (event) {
       jobsModal.classList.add('is-active');
 
       const modalBg = document.querySelector('.modal-background');
-      modalBg.addEventListener('click', function (event) {
+      modalBg.addEventListener('click', function () {
         jobsModal.classList.remove('is-active');
-        console.log(event.target);
       });
     }
   } catch (error) {
