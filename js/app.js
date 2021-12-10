@@ -17,7 +17,7 @@ import { renderGeocodeUrl } from './utils/renderGeocodeUrl.js';
 import './utils/toggleForm.js';
 import { formContainer } from './utils/toggleForm.js';
 import { setHeight } from './utils/setHeight.js';
-import { getONS, cities } from './utils/getONS.js';
+import { getOns, cities } from './utils/getOns.js';
 import { colourOns } from './utils/colourOns.js';
 import './utils/styles.js';
 
@@ -80,13 +80,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   let factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
 
   const storedOns = await Promise.all([
-    getONS(factors[0]),
-    getONS(factors[1]),
-    getONS(factors[2]),
-    getONS(factors[3]),
+    getOns(factors[0]),
+    getOns(factors[1]),
+    getOns(factors[2]),
+    getOns(factors[3]),
   ]);
 
-  console.log(storedOns);
   let finalOns = [];
 
   cities.forEach((city) => {
