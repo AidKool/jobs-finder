@@ -5,7 +5,7 @@ let headers = new Headers();
 headers.append('Authorization', 'Basic ' + btoa(key + ':'));
 
 // fetches jobs data from the Reeds API by providing url as input with proxy being stored as a constant
-// proxy is used to resolve CORS restrictions on local host
+// the proxy is used to avoid CORS restrictions on browsers
 export async function fetchJobsData(URL) {
   const response = await fetch(proxy + URL, {
     method: 'GET',
