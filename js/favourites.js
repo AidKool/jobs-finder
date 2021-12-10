@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         You have not favourited any jobs
                       </h2>
                       <button class="button is-link is-pulled-right">
-                        <a class="has-text-white" href="/index.html">Go back</a>
+                        <a class="has-text-white" href="./index.html">Go back</a>
                       </button>`;
   } else {
     renderJobsSearchData(favourites);
