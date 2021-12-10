@@ -1,3 +1,4 @@
+// fetches geocode location data from the MYPTV API by providing url as input
 export async function getCoordinates(url) {
   try {
     const response = await fetch(url);

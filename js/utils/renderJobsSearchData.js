@@ -74,7 +74,6 @@ function favouritesHandler() {
       });
       if (!favouriteIds.includes(storedJobs[rank].id)) {
         favouriteJobs.push(storedJobs[rank]);
-        console.log(document.querySelector('i'));
         element.innerHTML = `Favourite<i class="fas fa-heart ml-2"></i>`;
       } else {
         element.innerHTML = `Favourite<i class="far fa-heart ml-2"></i>`;
