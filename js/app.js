@@ -38,7 +38,7 @@ checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', function () {
     checkedCriteria = [...checkboxes]
       .filter((i) => i.checked) // Use Array.filter to remove unchecked checkboxes.
-      .map((i) => i.attributes[1].nodeValue); // Use Array.map to extract only the checkbox names from the array of objects.
+      .map((i) => i.attributes['name']); // Use Array.map to extract only the checkbox names from the array of objects.
   });
 });
 
