@@ -337,3 +337,7 @@ CONTACT PAGE
   text-decoration: underline;
   color: blue;
 }
+
+.figcaption {
+  font-size: 0.7rem;
+}
