@@ -110,7 +110,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   console.log(test);
 
   test.forEach(async (obj, index) => {
-    const marker = await addMarker(obj.city, index);
+    const marker = await addMarker(obj.city);
     marker.bindPopup(`<b> ${obj.city}: </b> 
   <br>
   <b> Happiness:</b> ${obj.happiness}
@@ -126,13 +126,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-async function addMarker(city, index) {
+async function addMarker(city) {
   try {
     const url = renderGeocodeUrl(city);
     const coords = await getCoordinates(url);
-    // coords['id'] = array[index];
     var marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
-    // let storedOns = JSON.parse(localStorage.getItem('ons'));
     return marker;
   } catch (error) {
     console.log(error);
