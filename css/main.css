@@ -312,3 +312,23 @@ CONTACT PAGE
     border: none;
   }
 }
+
+.green {
+  background-color: #2e8b57;
+  color: #ffffff;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: #8b0000;
+  color: #ffffff;
+}
+
+.red,
+.yellow,
+.green {
+  font-size: 0.9rem;
+}

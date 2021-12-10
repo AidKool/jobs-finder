@@ -18,6 +18,7 @@ import './utils/toggleForm.js';
 import { formContainer } from './utils/toggleForm.js';
 import { setHeight } from './utils/setHeight.js';
 import { getONS, cities } from './utils/getONS.js';
+import { colourOns } from './utils/colourOns.js';
 import './utils/styles.js';
 
 // Define DOM elements
@@ -86,7 +87,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   ]);
 
   console.log(storedOns);
-  let test = [];
+  let finalOns = [];
 
   cities.forEach((city) => {
     let obj = {
@@ -104,12 +105,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         4
       ).toFixed(2)}`,
     };
-    test.push(obj);
+    finalOns.push(obj);
   });
 
-  console.log(test);
-
-  test.forEach(async (obj, index) => {
+  finalOns.forEach(async (obj, index) => {
     const marker = await addMarker(obj.city);
     marker.bindPopup(`<b> ${obj.city}: </b> 
   <br>
@@ -121,7 +120,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   <br>
   <b> Anxiety: </b> ${obj.anxiety}
   <br>
-  <b> Overall: </b> ${obj.average}
+  ${colourOns(obj.average)}
   <br>`).openPopup;
   });
 });
