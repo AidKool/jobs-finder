@@ -332,3 +332,8 @@ CONTACT PAGE
 .green {
   font-size: 0.9rem;
 }
+
+.figcaption-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
