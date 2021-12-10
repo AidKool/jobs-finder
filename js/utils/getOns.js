@@ -31,8 +31,6 @@ export const cities = [
   'Barrow-in-Furness',
 ];
 
-const factors = ['happiness', 'worthwhile', 'life-satisfaction', 'anxiety'];
-
 export async function getOns(factor) {
   try {
     const url = renderOnsUrl(factor);
