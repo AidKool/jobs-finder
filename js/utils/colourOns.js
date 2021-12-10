@@ -1,3 +1,4 @@
+// colours the overall wellbeing score rendered on the map city popups
 export const colourOns = (avg) => {
   if (avg < 7) {
     return `<b>Average: <span class="red">${avg}</span></b>`;

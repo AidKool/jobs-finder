@@ -1,6 +1,7 @@
 import { fetchJobsData } from './fetchJobsData.js';
 import { VALUES_PER_PAGE } from './constants.js';
 
+// fetch card job data which displays general info about the job. Note that job description is not provided in full by the Reeds API
 export async function fetchJobs(url) {
   try {
     const rawData = await fetchJobsData(url);
