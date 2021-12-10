@@ -51,36 +51,40 @@
       </div>
     </nav>
 
-    <main class="section py-5 is-flex is-align-items-center">
+    <main class="section py-5 center-row">
       <div class="container">
         <div class="columns is-desktop">
           <div class="column is-4-desktop is-3-widescreen">
             <div class="form-container">
               <form>
                 <div class="what field">
-                  <label class="label">What</label>
+                  <label for="what" class="label">What</label>
                   <p class="control">
                     <input
                       class="what input"
+                      id="what"
+                      name="what"
                       type="text"
                       placeholder="e.g. Full Stack Developer"
                     />
                   </p>
                 </div>
                 <div class="where field">
-                  <label class="label">Where</label>
+                  <label for="where" class="label">Where</label>
                   <p class="control">
                     <input
                       class="where input"
+                      id="where"
+                      name="where"
                       type="text"
                       placeholder="e.g. Manchester"
                     />
                   </p>
                 </div>
                 <div class="field center-column start">
-                  <label class="label">Distance</label>
+                  <label class="label" for="distance">Distance</label>
                   <div class="select is-fullwidth">
-                    <select class="distance">
+                    <select id="distance" class="distance" name="distance">
                       <option value="0">0 miles</option>
                       <option value="1">1 mile</option>
                       <option value="3">3 miles</option>
@@ -94,9 +98,13 @@
                   </div>
                 </div>
                 <div class="field center-column start">
-                  <label class="label">From: </label>
+                  <label class="label" for="starting-salary">From: </label>
                   <div class="select is-fullwidth">
-                    <select class="starting-salary">
+                    <select
+                      id="starting-salary"
+                      class="starting-salary"
+                      name="starting-salary"
+                    >
                       <option value="0">£ Any</option>
                       <option value="10000">Up to £10,000</option>
                       <option value="15000">£15,000</option>
@@ -121,9 +129,13 @@
                   </div>
                 </div>
                 <div class="field center-column start">
-                  <label class="label">To: </label>
+                  <label class="label" for="ending-salary">To: </label>
                   <div class="select is-fullwidth">
-                    <select class="ending-salary">
+                    <select
+                      id="ending-salary"
+                      class="ending-salary"
+                      name="ending-salary"
+                    >
                       <option value="100000">£ Any</option>
                       <option value="10000">Up to £10,000</option>
                       <option value="15000">£15,000</option>
@@ -151,36 +163,7 @@
                   <label class="label">Job Type</label>
                   <div class="center-column start">
                     <label
-                      class="
-                        checkbox
-                        is-size-7 is-flex is-align-content-center
-                        mb-1
-                      "
-                    >
-                      <input type="checkbox" class="mr-1" name="permanent" />
-                      Permanent
-                    </label>
-                    <label
-                      class="
-                        checkbox
-                        is-size-7 is-flex is-align-content-center
-                        mb-1
-                      "
-                    >
-                      <input type="checkbox" class="mr-1" name="temp" />
-                      Temporary
-                    </label>
-                    <label
-                      class="
-                        checkbox
-                        is-size-7 is-flex is-align-content-center
-                        mb-1
-                      "
-                    >
-                      <input type="checkbox" class="mr-1" name="contract" />
-                      Contract
-                    </label>
-                    <label
+                      for="permanent"
                       class="
                         checkbox
                         is-size-7 is-flex is-align-content-center
@@ -188,17 +171,71 @@
                       "
                     >
                       <input
+                        id="permanent"
                         type="checkbox"
                         class="mr-1"
-                        name="fullTime"
-                        class=""
+                        name="permanent"
+                      />
+                      Permanent
+                    </label>
+                    <label
+                      for="temporary"
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input
+                        id="temporary"
+                        type="checkbox"
+                        class="mr-1"
+                        name="temporary"
+                      />
+                      Temporary
+                    </label>
+                    <label
+                      for="contract"
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input
+                        id="contract"
+                        type="checkbox"
+                        class="mr-1"
+                        name="contract"
+                      />
+                      Contract
+                    </label>
+                    <label
+                      for="full-time"
+                      class="
+                        checkbox
+                        is-size-7 is-flex is-align-content-center
+                        mb-1
+                      "
+                    >
+                      <input
+                        id="full-time"
+                        type="checkbox"
+                        class="mr-1"
+                        name="full-time"
                       />
                       Full-time
                     </label>
                     <label
+                      for="part-time"
                       class="checkbox is-size-7 is-flex is-align-content-center"
                     >
-                      <input type="checkbox" class="mr-1" name="partTime" />
+                      <input
+                        id="part-time"
+                        type="checkbox"
+                        class="mr-1"
+                        name="part-time"
+                      />
                       Part-time
                     </label>
                   </div>
@@ -207,6 +244,7 @@
                   <label class="label">Posted by</label>
                   <div class="center-column start">
                     <label
+                      for="agency"
                       class="
                         checkbox
                         is-size-7 is-flex is-align-content-center
@@ -214,19 +252,22 @@
                       "
                     >
                       <input
+                        id="agency"
                         type="checkbox"
                         class="mr-1"
-                        name="postedByRecruitmentAgency"
+                        name="agency"
                       />
                       Agency
                     </label>
                     <label
+                      for="employer"
                       class="checkbox is-size-7 is-flex is-align-content-center"
                     >
                       <input
+                        id="employer"
                         type="checkbox"
                         class="mr-1"
-                        name="postedByDirectEmployer"
+                        name="employer"
                       />
                       Employer
                     </label>
@@ -253,11 +294,11 @@
                 <em
                   >Figure 1 - Based on the Office of National Statistics (ONS)
                   personal well-being data in the UK from April 2020 to March
-                  2021. Overall scoring system has been explained in the
+                  2021. Overall scoring system has been explained
                   <a
                     class="figcaption-link"
                     href="https://github.com/AidKool/jobs-finder/blob/master/README.md"
-                    >link</a
+                    >here</a
                   >.</em
                 >
               </figcaption>
@@ -279,11 +320,11 @@
             <h5>Documentation</h5>
             <ul>
               <li>
-                <a href="https://www.reed.co.uk/" alt="reed">Reed</a>
+                <a href="https://www.reed.co.uk/">Reed</a>
               </li>
               <li><a href="https://leafletjs.com/">Leaflet JS</a></li>
               <li>
-                <a href="https://github.com/AidKool/jobs-finder" alt="source">
+                <a href="https://github.com/AidKool/jobs-finder">
                   <i class="fab fa-github mr-1"></i>
                   View Source
                 </a>
@@ -293,7 +334,7 @@
           <div class="column is-4-tablet">
             <h5>Jobs Finder</h5>
             <p>
-              Job Finder offers an interactive platform to search and save your
+              Jobs Finder offers an interactive platform to search and save your
               favourite jobs and is powered by the Reed Job Seeker API. Job
               Seeker also helps candidates choose between potential locations
               through the latest well-being statistics from ONS.
@@ -303,62 +344,65 @@
             <h5>APIs</h5>
             <ul>
               <li>
-                <a
-                  href="https://www.reed.co.uk/developers/jobseeker"
-                  alt="reed jobseeker api"
+                <a href="https://www.reed.co.uk/developers/jobseeker"
                   >Reed Jobseeker API</a
                 >
               </li>
               <li>
                 <a
                   href="https://www.maptiler.com/google-maps-platform-alternative/"
-                  alt="map tiler"
                   >Map Tiler</a
                 >
               </li>
               <li>
-                <a href="https://myptv.com/developer/" alt="myptv">MYPTV</a>
+                <a href="https://myptv.com/developer/"></a>
               </li>
               <li>
-                <a
-                  href="https://developer.ons.gov.uk/"
-                  alt="Office for National Statistics"
-                  >ONS</a
-                >
+                <a href="https://developer.ons.gov.uk/">ONS</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="columns">
-          <div class="column center-row is-flex center-column">
+          <div class="column center-column">
             <h5>For more info</h5>
-            <div>
-              <a href="https://www.facebook.com/Reedcouk">
-                <span class="icon is-small">
-                  <i class="fab fa-facebook-f"></i>
-                </span>
-              </a>
-              <a href="https://twitter.com/reedcouk">
-                <span class="icon is-small">
-                  <i class="fab fa-twitter"></i>
-                </span>
-              </a>
-              <a href="https://www.youtube.com/user/reedglobal">
-                <span class="icon is-small mr-2">
-                  <i class="fab fa-youtube"></i>
-                </span>
-              </a>
-              <a href="https://www.instagram.com/reedcouk/">
-                <span class="icon is-small">
-                  <i class="fab fa-instagram"></i>
-                </span>
-              </a>
-              <a href="./contact.html">
-                <span class="icon is-small">
-                  <i class="far fa-envelope"></i>
-                </span>
-              </a>
-            </div>
+            <ul class="center-row is-flex-wrap-wrap">
+              <li>
+                <a href="https://www.facebook.com/Reedcouk">
+                  <span class="icon is-small">
+                    <i class="fab fa-facebook-f"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/reedcouk">
+                  <span class="icon is-small">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/user/reedglobal">
+                  <span class="icon is-small mr-2">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/reedcouk/">
+                  <span class="icon is-small">
+                    <i class="fab fa-instagram"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="./contact.html">
+                  <span class="icon is-small">
+                    <i class="far fa-envelope"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="columns">
