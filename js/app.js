@@ -21,6 +21,7 @@ const form = document.querySelector('form');
 const distanceElement = document.querySelector('select.distance');
 const salaryFromElement = document.querySelector('select.starting-salary');
 const salaryToElement = document.querySelector('select.ending-salary');
+const submitBtn = document.querySelector('button.submit');
 
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
 
@@ -36,6 +37,8 @@ checkboxes.forEach(function (checkbox) {
 form.addEventListener('submit', async function (event) {
   try {
     event.preventDefault();
+    submitBtn.classList.add('is-loading');
+
     let locationName = locationElement.value;
     let keywords = keywordsElement.value;
     let distance = distanceElement.value;

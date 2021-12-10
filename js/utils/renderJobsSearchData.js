@@ -3,6 +3,7 @@ import { removeTags } from './removeTags.js';
 
 const jobList = document.querySelector('.jobs > ul');
 const numberJobs = document.querySelector('.number-jobs');
+const submitBtn = document.querySelector('button.submit');
 
 export function renderNumberJobs({ totalResults }) {
   numberJobs.innerHTML = `${totalResults} matching jobs found`;
@@ -13,6 +14,7 @@ export async function getAndDisplayJobsData(url) {
     const jobsData = await fetchJobs(url);
     renderNumberJobs(jobsData);
     renderJobsSearchData(jobsData.jobs);
+    submitBtn.classList.remove('is-loading');
     return jobsData;
   } catch (error) {
     console.log(error);
