@@ -12,7 +12,6 @@ import { formContainer } from './utils/toggleForm.js';
 import { setHeight } from './utils/setHeight.js';
 import { getOns, cities } from './utils/getOns.js';
 import { colourOns } from './utils/colourOns.js';
-import './utils/setHeightMain.js';
 
 // Define DOM elements
 const keywordsElement = document.querySelector('input.what');
