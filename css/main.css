@@ -117,27 +117,6 @@ button:hover .fa-heart {
   animation: heartbeat var(--heartbeat-animation);
 }
 
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.4);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  70% {
-    transform: scale(1.4);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 /********** 
 MAP
 **********/
@@ -221,14 +200,14 @@ MENU
   transition: var(--toggle-transition);
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
 @media screen and (min-width: 1024px) {
   .menu-container {
     height: auto !important;
   }
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 /********** 
@@ -275,6 +254,35 @@ FOOTER
   text-decoration: none !important;
 }
 
+/********** 
+SOCIAL MEDIA
+**********/
+
+.social-media {
+  margin-top: 30px;
+}
+
+.social-media .icon {
+  width: 60px;
+  height: 60px;
+}
+
+.social-media .icon:first-of-type {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 370px) {
+  .social-media .icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/********** 
+FOOTER & 
+SOCIAL MEDIA
+**********/
+
 .social-media .icon,
 .footer .icon {
   width: 50px;
@@ -318,6 +326,39 @@ FOOTER
   animation: icon-animation var(--icon-animation);
 }
 
+/********** 
+ATTRIBUTION
+**********/
+
+.attribution {
+  font-size: 0.5rem;
+}
+
+/********** 
+KEYFRAMES
+**********/
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes icon-animation {
   0% {
     left: -110%;
@@ -330,37 +371,5 @@ FOOTER
   100% {
     left: -10%;
     top: -10%;
-  }
-}
-
-/********** 
-ATTRIBUTION
-**********/
-
-.attribution {
-  font-size: 0.5rem;
-}
-
-/********** 
-SOCIAL MEDIA
-**********/
-
-.social-media {
-  margin-top: 30px;
-}
-
-.social-media .icon {
-  width: 60px;
-  height: 60px;
-}
-
-.social-media .icon:first-of-type {
-  margin-left: 0;
-}
-
-@media screen and (max-width: 370px) {
-  .social-media .icon {
-    width: 50px;
-    height: 50px;
   }
 }
