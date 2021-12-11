@@ -66,7 +66,7 @@ The app also has additional feautures:
 
 ## Appearance
 
-![Job Finder App](./media/img/main-screenshot.png)
+![Job Finder App](./media/img/job-finder.gif)
 
 ## Setup
 
