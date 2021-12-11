@@ -1,5 +1,5 @@
 const jobsModal = document.querySelector('.jobs-modal');
-
+// using string templates render individual job data for modal view upon the primary card h3 click
 export function renderInvididualJobData({
   title,
   employer,

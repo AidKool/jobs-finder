@@ -9,6 +9,8 @@ export function renderNumberJobs({ totalResults }) {
   numberJobs.innerHTML = `${totalResults} matching jobs found`;
 }
 
+// global function to get and display job data including number of search results
+// function also removes "is-loading" animation upon rendering job search results
 export async function getAndDisplayJobsData(url) {
   try {
     const jobsData = await fetchJobs(url);
@@ -20,7 +22,7 @@ export async function getAndDisplayJobsData(url) {
     console.log(error);
   }
 }
-
+// using string templates render primary card job data
 export const renderJobsSearchData = (jobs) => {
   localStorage.setItem('jobs', JSON.stringify(jobs));
   const jobString = jobs
@@ -50,7 +52,9 @@ export const renderJobsSearchData = (jobs) => {
     })
     .join('');
   jobList.innerHTML = jobString;
+  // retrieve saved jobs in favourites if any or save storedJobs as an empty array
   let storedJobs = JSON.parse(localStorage.getItem('favourites')) || [];
+  // for any jobs stored in local storage favourites, update the colour of the fa heart icon to display to the user that it has been saved
   const storedIds = storedJobs.map(function (obj) {
     return obj.id;
   });
@@ -60,6 +64,7 @@ export const renderJobsSearchData = (jobs) => {
       button.innerHTML = `Favourite<i class="fas fa-heart ml-2"></i>`;
     }
   });
+  //adds event listener on all favourite jobs stored to enable dynamic like/unlike or store/unstore functionality
   favouritesHandler();
 };
 
@@ -69,15 +74,19 @@ function favouritesHandler() {
     item.addEventListener('click', (event) => {
       const element = event.currentTarget;
       const rank = element.getAttribute('data-order');
+      // storedJobs gets all jobs currently displayed on screen (i.e. the 5 jobs)
       let storedJobs = JSON.parse(localStorage.getItem('jobs'));
+      // favouriteJobs gets all jobs that have been favourited. favouriteIds retrieves the respective favourite job id's
       let favouriteJobs = JSON.parse(localStorage.getItem('favourites')) || [];
       const favouriteIds = favouriteJobs.map(function (obj) {
         return obj.id;
       });
+      // if one of the 5 jobs displayed has been already favourited previously, then update the fa icon accordingly to reflect this
       if (!favouriteIds.includes(storedJobs[rank].id)) {
         favouriteJobs.push(storedJobs[rank]);
         element.innerHTML = `Favourite<i class="fas fa-heart ml-2"></i>`;
       } else {
+        //otherwise render an empty fa-heart icon and remove job from favouriteJobs list
         element.innerHTML = `Favourite<i class="far fa-heart ml-2"></i>`;
         favouriteJobs.splice(
           favouriteJobs.findIndex((v) => v.id === storedJobs[rank].id),
