@@ -29,8 +29,10 @@ export function renderPaginationButtons(totalPages, currentPage) {
   const pages = calculatePages(totalPages, currentPage);
 
   paginationContainer.innerHTML = `
-  <a class="pagination-previous" data-page="prev">Prev</a>
   <ul class="pagination-list">
+    <li>
+      <a class="pagination-previous" data-page="prev">Prev</a>
+    </li>
   ${pages
     .map((item, index, array) => {
       let newItem = `<li>
@@ -44,8 +46,10 @@ export function renderPaginationButtons(totalPages, currentPage) {
       return newItem;
     })
     .join('')}
+      <li>  
+        <a class="pagination-next" data-page="next">Next</a>
+      </li>  
     </ul>  
-    <a class="pagination-next" data-page="next">Next</a>
 `;
   showActivePage(currentPage);
   if (isLast(totalPages, currentPage)) {
