@@ -26,6 +26,6 @@ export async function fetchJobs(url) {
       jobs,
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }

@@ -7,6 +7,6 @@ export async function getCoordinates(url) {
     const { locations } = data;
     return locations[0].referencePosition;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }

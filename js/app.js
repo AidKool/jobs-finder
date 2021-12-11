@@ -67,7 +67,7 @@ form.addEventListener('submit', async function (event) {
     initialisePaginationButtons(jobsData);
     setHeight(formContainer, 0);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -123,6 +123,6 @@ async function addMarker(city) {
     const marker = L.marker([coords.latitude, coords.longitude]).addTo(map);
     return marker;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }

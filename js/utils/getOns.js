@@ -54,6 +54,6 @@ export async function getOns(factor) {
       }, {});
     return filtered;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
