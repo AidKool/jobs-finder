@@ -253,6 +253,10 @@ FOOTER
   text-decoration: underline;
 }
 
+.links-no-underline:hover * {
+  text-decoration: none !important;
+}
+
 .social-media .icon,
 .footer .icon {
   width: 50px;
