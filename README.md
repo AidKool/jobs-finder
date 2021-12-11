@@ -9,6 +9,7 @@ Live demo [_here_](https://aidkool.github.io/jobs-finder/).
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Appearance](#appearance)
+- [Demo](#demo)
 - [Setup](#setup)
 - [Project Status](#project-status)
 - [Acknowledgements](#acknowledgements)
@@ -67,6 +68,10 @@ The app also has additional feautures:
 ## Appearance
 
 ![Job Finder App](./media/img/job-finder.gif)
+
+## Demo
+
+![Job Finder App](./demo.gif)
 
 ## Setup
 
