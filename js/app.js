@@ -110,7 +110,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   <br>
   <b> Anxiety: </b> ${data.anxiety}
   <br>
-  ${colourOns(data.average)}
+  <b>Average: <span class="${colourOns(data.average)}">${
+      data.average
+    }</span></b>
   <br>`).openPopup;
   });
 });
