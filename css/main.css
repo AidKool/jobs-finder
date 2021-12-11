@@ -31,6 +31,10 @@ body {
   min-height: 100vh;
 }
 
+main {
+  min-height: calc(100vh - 52px);
+}
+
 .center-column,
 .start {
   display: flex;
