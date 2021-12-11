@@ -25,7 +25,7 @@ const submitBtn = document.querySelector('button.submit');
 
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
 
-let checkedCriteria = [];
+const checkedCriteria = [];
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', function () {
     checkedCriteria = [...checkboxes]
@@ -39,18 +39,18 @@ form.addEventListener('submit', async function (event) {
     event.preventDefault();
     submitBtn.classList.add('is-loading');
 
-    let locationName = locationElement.value;
-    let keywords = keywordsElement.value;
-    let distance = distanceElement.value;
-    let minimumSalary = salaryFromElement.value;
-    let maximumSalary = salaryToElement.value;
-    let checkedUrl = checkedCriteria
+    const locationName = locationElement.value;
+    const keywords = keywordsElement.value;
+    const distance = distanceElement.value;
+    const minimumSalary = salaryFromElement.value;
+    const maximumSalary = salaryToElement.value;
+    const checkedUrl = checkedCriteria
       .map((k) => {
         return `&${k}=true`;
       })
       .join('');
     // Below function will render the url
-    let url = renderUrl(
+    const url = renderUrl(
       keywords,
       distance,
       minimumSalary,
@@ -78,10 +78,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     ...factors.map((factor) => getOns(factor)),
   ]);
 
-  let finalOns = [];
+  const finalOns = [];
 
   cities.forEach((city) => {
-    let cityData = {
+    const cityData = {
       city: city,
       happiness: storedOns[0][city],
       worthwhile: storedOns[1][city],

@@ -1,7 +1,7 @@
 const key = '1459635b-4489-42d0-b950-45f8623b8242';
 const proxy = 'https://course-anywhere.herokuapp.com/';
 
-let headers = new Headers();
+const headers = new Headers();
 headers.append('Authorization', 'Basic ' + btoa(key + ':'));
 
 // fetches jobs data from the Reeds API by providing url as input with proxy being stored as a constant
@@ -11,6 +11,5 @@ export async function fetchJobsData(URL) {
     method: 'GET',
     headers: headers,
   });
-  const data = await response.json();
-  return data;
+  return await response.json();
 }
