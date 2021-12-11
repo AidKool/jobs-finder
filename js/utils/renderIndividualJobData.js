@@ -11,7 +11,7 @@ export function renderInvididualJobData({
 }) {
   jobsModal.innerHTML = `
           <div class="modal-background"></div>
-          <div class="modal-content has-background-white py-5 px-5">
+          <article class="modal-content has-background-white py-5 px-5">
             <h3 class="title mb-2">${title}</h3>
             <div class="company-container is-flex is-align-items-center mb-2">
               <i class="fas fa-building"></i>
@@ -34,6 +34,6 @@ export function renderInvididualJobData({
               <p class="ml-2">Expiration date: ${expirationDate}</p>
             </div>
             <p class="job-description mb-2">${description}</p>
-          </div>
+          </article>
 `;
 }
