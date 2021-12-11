@@ -232,6 +232,20 @@ MENU
 }
 
 /********** 
+PAGINATION
+**********/
+
+.pagination-ellipsis {
+  display: none;
+}
+
+@media screen and (min-width: 620px) {
+  .pagination-ellipsis {
+    display: inline;
+  }
+}
+
+/********** 
 FOOTER
 **********/
 
