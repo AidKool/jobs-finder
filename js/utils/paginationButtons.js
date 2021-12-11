@@ -3,28 +3,33 @@ const paginationContainer = document.querySelector('.pagination');
 function calculatePages(totalPages, currentPage) {
   let pages = [];
 
+  // add two previous pages, current page, and two next pages
   for (let i = currentPage - 2; i < totalPages && pages.length < 5; i++) {
     if (i > 0) {
       pages.push(i);
     }
   }
 
+  // add the first page if not present
   if (pages[0] !== 1) {
     pages.unshift(1);
   }
 
+  // add the last page if not present
   if (pages[pages.length - 1] !== totalPages) {
     pages.push(totalPages);
   }
   return pages;
 }
 
+// renders pagination for page 1
 export function initialisePaginationButtons({ totalPages }) {
   renderPaginationButtons(totalPages, 1);
   const btnPrev = document.querySelector('.pagination-previous');
   btnPrev.classList.add('is-hidden');
 }
 
+// renders pagination buttons based on the current page and the total number of pages
 export function renderPaginationButtons(totalPages, currentPage) {
   const pages = calculatePages(totalPages, currentPage);
 
@@ -57,6 +62,7 @@ export function renderPaginationButtons(totalPages, currentPage) {
   }
 }
 
+// add class 'is-current' to the current page
 function showActivePage(currentPage) {
   const paginationLinks = document.querySelectorAll('.pagination li > a');
   paginationLinks.forEach((button) => {
@@ -67,6 +73,7 @@ function showActivePage(currentPage) {
   });
 }
 
+// remove the 'next' button when the last page is reached
 function removeNextfromLastPage() {
   const btnNext = document.querySelector('.pagination-next');
   btnNext.classList.add('is-hidden');
