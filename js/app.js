@@ -100,20 +100,21 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   finalOns.forEach(async (data) => {
     const marker = await addMarker(data.city);
-    marker.bindPopup(`<b> ${data.city}: </b> 
-  <br>
-  <b> Happiness:</b> ${data.happiness}
-  <br>
-  <b> Worthwhile: </b> ${data.worthwhile}
-  <br>
-  <b> Life-satisfaction: </b> ${data.lifeSatisfaction}
-  <br>
-  <b> Anxiety: </b> ${data.anxiety}
-  <br>
-  <b>Average: <span class="${colourOns(data.average)}">${
+    const markerInfo = `<b> ${data.city}: </b> 
+    <br>
+    <b> Happiness:</b> ${data.happiness}
+    <br>
+    <b> Worthwhile: </b> ${data.worthwhile}
+    <br>
+    <b> Life-satisfaction: </b> ${data.lifeSatisfaction}
+    <br>
+    <b> Anxiety: </b> ${data.anxiety}
+    <br>
+    <b>Average: <span class="${colourOns(data.average)}">${
       data.average
     }</span></b>
-  <br>`).openPopup;
+    <br>`;
+    marker.bindPopup(markerInfo).openPopup;
   });
 });
 
