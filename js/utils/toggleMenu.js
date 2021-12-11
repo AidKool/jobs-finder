@@ -6,6 +6,8 @@ const menu = document.querySelector('.menu');
 const documentation = document.querySelector('.documentation');
 const navbarDropdown = document.querySelector('.navbar-dropdown');
 
+// event listener on the burger (or toggleBtn) to toggle upon click by adjusting back to normal height if in minimised state
+// This allows toggle on the **Menu**
 toggleBtn.addEventListener('click', function () {
   const containerHeight = menuContainer.getBoundingClientRect().height;
   const menuHeight = menu.getBoundingClientRect().height;

@@ -1,3 +1,4 @@
+// remove tags function used to remove html tags that were found in primary card job description
 export const removeTags = (str) => {
   if (str === null || str === '') return false;
   else str = str.toString();

@@ -1,3 +1,4 @@
+// This renders the URL for the fetch call upon inital submit. This takes keywords, distance, salary range info, location and checkboxes (which are sourced through filters) and renders the URL needed for the call.
 export const renderUrl = (
   keywords,
   distance,
