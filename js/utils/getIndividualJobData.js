@@ -34,6 +34,6 @@ jobList.addEventListener('click', async function (event) {
       });
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });

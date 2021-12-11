@@ -19,7 +19,7 @@ export async function getAndDisplayJobsData(url) {
     submitBtn.classList.remove('is-loading');
     return jobsData;
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 // using string templates render primary card job data
