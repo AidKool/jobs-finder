@@ -40,11 +40,11 @@ export async function getOns(factor) {
     // destructure data retrieved from fetch
     const { observations } = data;
     // obtains wellbeing values for a given factor
-    let wellbeing = observations.map(({ observation }) => observation);
+    const wellbeing = observations.map(({ observation }) => observation);
     // obtains the respective local geography for the wellbeing value
-    let geography = observations.map((a) => a.dimensions['Geography'].label);
+    const geography = observations.map((a) => a.dimensions['Geography'].label);
     //Results are then filtered to return only cities wellbeing data included in the cities array included above.
-    let result = {};
+    const result = {};
     geography.forEach((key, i) => (result[key] = wellbeing[i]));
     const filtered = Object.keys(result)
       .filter((key) => cities.includes(key))
