@@ -16,7 +16,6 @@ Live demo [_here_](https://aidkool.github.io/jobs-finder/).
 - [Demo](#demo)
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
-- [Addendum](#addendum)
 
 ## General Information
 
