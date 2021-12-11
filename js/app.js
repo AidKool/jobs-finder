@@ -25,7 +25,7 @@ const submitBtn = document.querySelector('button.submit');
 
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
 
-const checkedCriteria = [];
+let checkedCriteria = [];
 checkboxes.forEach(function (checkbox) {
   checkbox.addEventListener('change', function () {
     checkedCriteria = [...checkboxes]
